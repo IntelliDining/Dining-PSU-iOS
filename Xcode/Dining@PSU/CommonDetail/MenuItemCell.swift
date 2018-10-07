@@ -19,7 +19,7 @@ class MenuItemCell: UITableViewCell {
     
     var title: UILabel = {
         let l = UILabel()
-        l.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        l.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         return l
     }()
     
@@ -36,6 +36,13 @@ class MenuItemCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configureWith(_ menuItem: MenuItem) {
+        title.text = menuItem.recipeName
+        let kcal = menuItem.calories
+        let fatCal = menuItem.caloriesFromFat
+        subtitle.text = "kcal: \(kcal), fat: \(fatCal)"
     }
     
     func setConstraints() {

@@ -24,6 +24,17 @@ class CommonDetailVC: UIViewController {
         return t
     }()
     
+    lazy var refreshControl: UIRefreshControl = {
+        let r = UIRefreshControl()
+        r.addTarget(self, action: #selector(load), for: .valueChanged)
+        return r
+    }()
+    
+    lazy var dataSource = CommonDetailDataSource(diningHall: self.diningHall)
+    lazy var viewModel = CommonDetailViewModel(tableView: self.tableView,
+                                               dataSource: self.dataSource)
+    
+    
     var diningHall: DiningHall
     
     init(diningHall: DiningHall) {
@@ -41,9 +52,34 @@ class CommonDetailVC: UIViewController {
         view.backgroundColor = .white
         navigationItem.title = diningHall.title.replacingOccurrences(of: "\n", with: " ")
         
+        let tableViewController = UITableViewController()
+        tableViewController.tableView = tableView
+        tableViewController.refreshControl = refreshControl
+        addChild(tableViewController)
+        
+        tableView.delegate = viewModel
+        tableView.dataSource = viewModel
+        
         setupViews()
         datePicker.fillCurrentYear()
         datePicker.selectDate(Date())
+        
+        load()
+    }
+    
+    @objc func load() {
+        startLoadingAnimations()
+        dataSource.download { result in
+            switch result {
+            case .success:
+                self.tableView.reloadData()
+            case .failure(error: let error):
+                let alert = UIAlertController(title: "Failed to load menu.", message: error, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            self.stopLoadingAnimations()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,8 +95,21 @@ class CommonDetailVC: UIViewController {
     }
     
     @objc func didPickDate() {
-        let date = datePicker.selectedDate
-        
+        let date = datePicker.selectedDate!
+        dataSource.date = date
+        load()
+    }
+    
+    func startLoadingAnimations() {
+        tableView.setContentOffset(CGPoint(x: 0, y: tableView.contentOffset.y-refreshControl.frame.size.height),
+                                   animated: true)
+        refreshControl.beginRefreshing()
+    }
+    
+    func stopLoadingAnimations() {
+        if refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        }
     }
     
     func setupViews() {

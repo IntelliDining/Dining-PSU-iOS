@@ -37,6 +37,7 @@
 		FC035C3821698D450026E672 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C3721698D450026E672 /* Result.swift */; };
 		FC035C3A2169AB280026E672 /* CommonDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C392169AB280026E672 /* CommonDetailDataSource.swift */; };
 		FC035C3C2169B9860026E672 /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C3B2169B9860026E672 /* MenuItemCell.swift */; };
+		FC035C3E2169BDB10026E672 /* CommonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C3D2169BDB10026E672 /* CommonDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		FC035C3721698D450026E672 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		FC035C392169AB280026E672 /* CommonDetailDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDetailDataSource.swift; sourceTree = "<group>"; };
 		FC035C3B2169B9860026E672 /* MenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemCell.swift; sourceTree = "<group>"; };
+		FC035C3D2169BDB10026E672 /* CommonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				FC035C2821696D620026E672 /* CommonDetailVC.swift */,
+				FC035C3D2169BDB10026E672 /* CommonDetailViewModel.swift */,
 				FC035C392169AB280026E672 /* CommonDetailDataSource.swift */,
 				FC035C3B2169B9860026E672 /* MenuItemCell.swift */,
 			);
@@ -391,6 +394,7 @@
 				FC035C0D216952CB0026E672 /* JZDatepickerDateView.m in Sources */,
 				FC035C0B216952CB0026E672 /* JZDatepickerMonthView.m in Sources */,
 				FC035C2021695A900026E672 /* IDNavigationController.swift in Sources */,
+				FC035C3E2169BDB10026E672 /* CommonDetailViewModel.swift in Sources */,
 				FC035C3821698D450026E672 /* Result.swift in Sources */,
 				FC035C1E216958E20026E672 /* ShrinkingView.swift in Sources */,
 				FC035C1A216957900026E672 /* Shadow.swift in Sources */,

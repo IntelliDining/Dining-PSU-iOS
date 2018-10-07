@@ -12,37 +12,43 @@ import Alamofire
 class DataService {
     
     static func getDiningHalls(completion: @escaping (Result<[DiningHall]>) -> Void) {
-        let e = DiningHall(title: "Findlay\nDining\nCommons",
+        let e = DiningHall(id: 0,
+                           title: "Findlay\nDining\nCommons",
                            image: UIImage(named: "findlay")!,
                            campusCode: "",
                            latitude: 0.0,
                            longitude: 0.0)
         
-        let p = DiningHall(title: "Pollock\nDining\nCommons",
+        let p = DiningHall(id: 1,
+                           title: "Pollock\nDining\nCommons",
                            image: UIImage(named: "pollock")!,
                            campusCode: "",
                            latitude: 0.0,
                            longitude: 0.0)
         
-        let m = DiningHall(title: "The Mix\nAt\nPollock",
+        let m = DiningHall(id: 2,
+                           title: "The Mix\nAt\nPollock",
                            image: UIImage(named: "pollock")!,
                            campusCode: "",
                            latitude: 0.0,
                            longitude: 0.0)
         
-        let s = DiningHall(title: "South\nFood\nDistrict",
+        let s = DiningHall(id: 3,
+                           title: "South\nFood\nDistrict",
                            image: UIImage(named: "south")!,
                            campusCode: "",
                            latitude: 0.0,
                            longitude: 0.0)
         
-        let w = DiningHall(title: "West\nFood\nDistrict",
+        let w = DiningHall(id: 4,
+                           title: "West\nFood\nDistrict",
                            image: UIImage(named: "west")!,
                            campusCode: "",
                            latitude: 0.0,
                            longitude: 0.0)
         
-        let n = DiningHall(title: "North\nFood\nDistrict",
+        let n = DiningHall(id: 5,
+                           title: "North\nFood\nDistrict",
                            image: UIImage(named: "north")!,
                            campusCode: "",
                            latitude: 0.0,
@@ -61,7 +67,7 @@ class DataService {
     }
     
     // mm/dd/yyyy
-    static func getMenu(date: Date, diningHallID: String, completion: @escaping (Result<Menu>) -> Void) {
+    static func getMenu(date: Date, diningHallID: Int, completion: @escaping (Result<Menu>) -> Void) {
         let formatter = DateFormatter()
         formatter.dateFormat = "mm/dd/yyyy"
         let dateString = formatter.string(from: date)
