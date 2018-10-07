@@ -18,4 +18,24 @@ struct LocationHours {
     var dayOfWeekEnd: Int?
     var timeOpen: String
     var timeClosed: String
+    
+    init(from json: [String: Any]) {
+        menuCategoryNumber = json["menuCategoryNumber"] as? String
+        if let s = json["dayofweekStart"] as? String {
+            dayOfWeekStart = Int(s)!
+        } else {
+            let n = json["dayofweekStart"] as! NSNumber
+            dayOfWeekStart = n.intValue
+        }
+        if let val = json["dayofweekEnd"], !(val is NSNull) {
+            if let s = val as? String {
+                dayOfWeekEnd = Int(s)!
+            } else {
+                let n = val as! NSNumber
+                dayOfWeekEnd = n.intValue
+            }
+        }
+        timeOpen = json["timeOpenDisplay"] as! String
+        timeClosed = json["timeCloseDisplay"] as! String
+    }
 }

@@ -14,7 +14,7 @@ class CommonDetailDataSource {
     var date: Date = Date()
     var selectedMeal: MealName = .breakfast {
         didSet {
-            refilterLocations()
+            self.filteredLocations = self.filterLocations(mealName: selectedMeal)
         }
     }
     var menu: Menu = [:]
@@ -49,7 +49,6 @@ class CommonDetailDataSource {
             switch result {
             case .success(let menu):
                 self.menu = menu
-                self.refilterLocations()
             case .failure(error: let error):
                 didError = true
                 errorMessage = error
@@ -61,18 +60,22 @@ class CommonDetailDataSource {
             if didError {
                 completion(Result.failure(error: errorMessage ?? "Unknown"))
             } else {
+                self.filteredLocations = self.filterLocations(mealName: self.selectedMeal)
                 completion(Result.success(value: true))
             }
         }
     }
     
-    func refilterLocations() {
-        if let menus = menu[selectedMeal] {
-            filteredLocations = locations.filter {
-                guard let items = menus[$0.locationName] else { return false }
+    func filterLocations(mealName: MealName) -> [Location] {
+        if let menus = menu[mealName] {
+            let filtered =  locations.filter {
+                guard let items = menus[$0.menuCategoryName] else { return false }
                 return items.count > 0
             }
+            
+            return filtered.sorted{$0.menuCategoryName < $1.menuCategoryName}
         }
         
+        return []
     }
 }

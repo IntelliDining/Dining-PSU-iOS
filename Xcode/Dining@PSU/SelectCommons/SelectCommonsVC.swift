@@ -73,6 +73,10 @@ class SelectCommonsVC: UIViewController, SelectCommonsViewModelDelegate {
             }
             self.stopLoadingAnimations()
         }
+        
+//        DataService.getHours { result in
+//            
+//        }
     }
     
     func setupContraints() {

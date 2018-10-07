@@ -33,12 +33,12 @@ class CommonDetailViewModel: NSObject, UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return dataSource.filteredLocations[section].locationName
+        return dataSource.filteredLocations[section].menuCategoryName
     }
     
     func getItems(inSection section: Int) -> [MenuItem] {
-        let locationName = dataSource.filteredLocations[section].locationName
-        let items = dataSource.menu[dataSource.selectedMeal]![locationName]!
+        let categoryName = dataSource.filteredLocations[section].menuCategoryName
+        let items = dataSource.menu[dataSource.selectedMeal]![categoryName]!
         return items
     }
     

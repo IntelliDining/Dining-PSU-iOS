@@ -26,12 +26,14 @@ class MenuItemCell: UITableViewCell {
     var subtitle: UILabel = {
         let l = UILabel()
         l.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        l.textColor = .lightGray
         return l
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         accessoryType = .disclosureIndicator
+        setupConstraints()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -39,13 +41,13 @@ class MenuItemCell: UITableViewCell {
     }
     
     func configureWith(_ menuItem: MenuItem) {
-        title.text = menuItem.recipeName
+        title.text = menuItem.recipePrintAsName
         let kcal = menuItem.calories
         let fatCal = menuItem.caloriesFromFat
         subtitle.text = "kcal: \(kcal), fat: \(fatCal)"
     }
     
-    func setConstraints() {
+    func setupConstraints() {
         labelStack.addArrangedSubview(title)
         labelStack.addArrangedSubview(subtitle)
         contentView.addSubview(labelStack)

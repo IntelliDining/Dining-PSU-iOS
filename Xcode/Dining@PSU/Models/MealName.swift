@@ -12,5 +12,6 @@ enum MealName: String {
     case breakfast = "Breakfast"
     case lunch = "Lunch"
     case dinner = "Dinner"
-    case dinnerLateNight = "Dinner/Late Night"
+    //case dinnerLateNight = "Dinner/Late Night"
+    case fourthMeal = "4th Meal"
 }

@@ -16,6 +16,7 @@ class CommonDetailVC: UIViewController {
         let s = UISegmentedControl(items: ["Breakfast", "Lunch", "Dinner", "Late Night"])
         s.tintColor = appTintColor
         s.selectedSegmentIndex = 0
+        s.addTarget(self, action: #selector(segmentedControlChanged), for: .valueChanged)
         return s
     }()
     
@@ -59,6 +60,7 @@ class CommonDetailVC: UIViewController {
         
         tableView.delegate = viewModel
         tableView.dataSource = viewModel
+        tableView.tableFooterView = UIView()
         
         setupViews()
         datePicker.fillCurrentYear()
@@ -68,10 +70,12 @@ class CommonDetailVC: UIViewController {
     }
     
     @objc func load() {
+        self.tableView.contentOffset = CGPoint(x: 0, y: 0)
         startLoadingAnimations()
         dataSource.download { result in
             switch result {
             case .success:
+                self.validateSegmentedControl()
                 self.tableView.reloadData()
             case .failure(error: let error):
                 let alert = UIAlertController(title: "Failed to load menu.", message: error, preferredStyle: .alert)
@@ -79,6 +83,44 @@ class CommonDetailVC: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             }
             self.stopLoadingAnimations()
+        }
+    }
+    
+    func validateSegmentedControl() {
+        
+        if dataSource.filterLocations(mealName: .breakfast).count == 0 {
+            segmentedControl.setEnabled(false, forSegmentAt: 0)
+        } else {
+            segmentedControl.setEnabled(true, forSegmentAt: 0)
+        }
+        
+        if dataSource.filterLocations(mealName: .lunch).count == 0 {
+            segmentedControl.setEnabled(false, forSegmentAt: 1)
+        } else {
+            segmentedControl.setEnabled(true, forSegmentAt: 1)
+        }
+        
+        if dataSource.filterLocations(mealName: .dinner).count == 0 {
+            segmentedControl.setEnabled(false, forSegmentAt: 2)
+        } else {
+            segmentedControl.setEnabled(true, forSegmentAt: 2)
+        }
+        
+        if dataSource.filterLocations(mealName: .fourthMeal).count == 0 {
+            segmentedControl.setEnabled(false, forSegmentAt: 3)
+        } else {
+            segmentedControl.setEnabled(true, forSegmentAt: 3)
+        }
+        
+        if segmentedControl.selectedSegmentIndex == UISegmentedControl.noSegment || !segmentedControl.isEnabledForSegment(at: segmentedControl.selectedSegmentIndex) {
+            segmentedControl.selectedSegmentIndex = UISegmentedControl.noSegment
+            for i in 0...3 {
+                if segmentedControl.isEnabledForSegment(at: i){
+                    segmentedControl.selectedSegmentIndex = i
+                    segmentedControlChanged()
+                    break
+                }
+            }
         }
     }
     
@@ -95,9 +137,25 @@ class CommonDetailVC: UIViewController {
     }
     
     @objc func didPickDate() {
-        let date = datePicker.selectedDate!
-        dataSource.date = date
-        load()
+        if let date = datePicker.selectedDate {
+            dataSource.date = date
+            load()
+        }
+    }
+    
+    @objc func segmentedControlChanged() {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            dataSource.selectedMeal = .breakfast
+        case 1:
+            dataSource.selectedMeal = .lunch
+        case 2:
+            dataSource.selectedMeal = .dinner
+        default:
+            dataSource.selectedMeal = .fourthMeal
+        }
+        self.tableView.contentOffset = CGPoint(x: 0, y: 0)
+        tableView.reloadData()
     }
     
     func startLoadingAnimations() {
@@ -137,6 +195,12 @@ class CommonDetailVC: UIViewController {
             make.left.right.equalTo(view).inset(16)
             make.top.equalTo(separator.snp.bottom).offset(8)
             make.height.equalTo(33)
+        }
+        
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(segmentedControl.snp.bottom).offset(8)
+            make.left.right.bottom.equalTo(view)
         }
     }
 

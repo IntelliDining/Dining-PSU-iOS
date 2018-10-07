@@ -28,8 +28,6 @@ class DataService {
                 case .success(let json):
                     let dict = json as! [String: [Any]]
                     
-                    print(dict["DATA"]!.self)
-                    
                     var zipps: [Zip2Sequence<[String], [Any]>] = []
                     for datum in dict["DATA"]! {
                         let arr = datum as! [Any]
@@ -40,21 +38,24 @@ class DataService {
                     var objArray: [[String: Any]] = []
                     for zipped in zipps {
                         let dict = Dictionary(uniqueKeysWithValues: zipped)
-                        let d = dict as! [String: Any]
-                        let r = rename(d)
+                        let r = rename(dict)
                         objArray.append(r)
                     }
                     
                     switch (T.self) {
                     case is DiningHall.Type:
-                        //                            DiningHall(objDict)
-                        break
+                        var halls = objArray.map{DiningHall(from: $0)}
+                        halls = halls.filter{$0.campusCode == "UP"} // Filter Only University Park Commons
+                        completion(Result.success(value: halls as! [T]))
                     case is Location.Type:
-                        break
+                        let locations = objArray.map{Location(from: $0)}
+                        completion(Result.success(value: locations as! [T]))
                     case is LocationHours.Type:
-                        break
+                        let hours = objArray.map{LocationHours(from: $0)}
+                        completion(Result.success(value: hours as! [T]))
                     case is MenuItem.Type:
-                        break
+                        let items = objArray.map{MenuItem(from: $0)}
+                        completion(Result.success(value: items as! [T]))
                     default:
                         completion(Result.failure(error: "Unknown type \(T.self)"))
                     }
@@ -77,51 +78,6 @@ class DataService {
     
     static func getDiningHalls(completion: @escaping (Result<[DiningHall]>) -> Void) {
         get("facilities/areas", nil, completion)
-//
-//        let e = DiningHall(id: 0,
-//                           title: "Findlay\nDining\nCommons",
-//                           image: UIImage(named: "findlay")!,
-//                           campusCode: "",
-//                           latitude: 0.0,
-//                           longitude: 0.0)
-//
-//        let p = DiningHall(id: 1,
-//                           title: "Pollock\nDining\nCommons",
-//                           image: UIImage(named: "pollock")!,
-//                           campusCode: "",
-//                           latitude: 0.0,
-//                           longitude: 0.0)
-//
-//        let m = DiningHall(id: 2,
-//                           title: "The Mix\nAt\nPollock",
-//                           image: UIImage(named: "pollock")!,
-//                           campusCode: "",
-//                           latitude: 0.0,
-//                           longitude: 0.0)
-//
-//        let s = DiningHall(id: 3,
-//                           title: "South\nFood\nDistrict",
-//                           image: UIImage(named: "south")!,
-//                           campusCode: "",
-//                           latitude: 0.0,
-//                           longitude: 0.0)
-//
-//        let w = DiningHall(id: 4,
-//                           title: "West\nFood\nDistrict",
-//                           image: UIImage(named: "west")!,
-//                           campusCode: "",
-//                           latitude: 0.0,
-//                           longitude: 0.0)
-//
-//        let n = DiningHall(id: 5,
-//                           title: "North\nFood\nDistrict",
-//                           image: UIImage(named: "north")!,
-//                           campusCode: "",
-//                           latitude: 0.0,
-//                           longitude: 0.0)
-//
-//        let diningHalls = [e, p, m, s, w, n]
-//        completion(Result.success(value: diningHalls))
     }
     
     static func getHours(completion: @escaping (Result<DiningHallHours>) -> Void) {
@@ -147,13 +103,15 @@ class DataService {
     // mm/dd/yyyy
     static func getMenu(date: Date, diningHallID: String, completion: @escaping (Result<Menu>) -> Void) {
         let formatter = DateFormatter()
-        formatter.dateFormat = "mm/dd/yyyy"
+        formatter.dateFormat = "MM'/'dd'/'yyyy"
         let dateString = formatter.string(from: date)
         
         get("services/food/menus", ["date": dateString, "location": diningHallID]) { (result: Result<[MenuItem]>) in
             switch (result) {
             case .success(let data):
                 let meals = Array(Set(data.map {$0.mealName}))
+                print(meals)
+                
                 let sections = Array(Set(data.map {$0.menuCategoryName}))
                 
                 let raw = Dictionary(uniqueKeysWithValues: meals.map {k in (k, Dictionary(uniqueKeysWithValues: sections.map {k1 in (k1, data.filter {datum in datum.mealName == k && datum.menuCategoryName == k1})}))})

@@ -35,7 +35,7 @@ class DiningHallCell: UICollectionViewCell, ShrinkingView {
     }
     
     func configureWith(_ diningHall: DiningHall) {
-        label.text = diningHall.title
+        label.text = diningHall.title.replacingOccurrences(of: " ", with: "\n")
         imageView.image = diningHall.image
     }
     
