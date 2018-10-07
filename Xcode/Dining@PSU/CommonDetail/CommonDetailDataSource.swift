@@ -67,7 +67,7 @@ class CommonDetailDataSource {
     }
     
     func refilterLocations() {
-        if let menus = menu[selectedMeal.rawValue] {
+        if let menus = menu[selectedMeal] {
             filteredLocations = locations.filter {
                 guard let items = menus[$0.locationName] else { return false }
                 return items.count > 0

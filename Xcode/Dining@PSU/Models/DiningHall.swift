@@ -9,7 +9,7 @@
 import UIKit
 
 struct DiningHall {
-    var id: Int
+    var id: String
     var title: String
     var image: UIImage?
     var campusCode: String

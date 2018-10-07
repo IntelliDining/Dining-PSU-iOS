@@ -38,7 +38,7 @@ class CommonDetailViewModel: NSObject, UITableViewDataSource, UITableViewDelegat
     
     func getItems(inSection section: Int) -> [MenuItem] {
         let locationName = dataSource.filteredLocations[section].locationName
-        let items = dataSource.menu[dataSource.selectedMeal.rawValue]![locationName]!
+        let items = dataSource.menu[dataSource.selectedMeal]![locationName]!
         return items
     }
     

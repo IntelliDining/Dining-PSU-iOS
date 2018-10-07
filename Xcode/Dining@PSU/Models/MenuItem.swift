@@ -9,7 +9,7 @@
 import Foundation
 
 // MealName: //Place:
-typealias Menu = [String: [String: [MenuItem]]]
+typealias Menu = [MealName: [String: [MenuItem]]]
 
 struct MenuItem {
     var id: Int

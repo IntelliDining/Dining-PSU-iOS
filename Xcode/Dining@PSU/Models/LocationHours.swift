@@ -10,9 +10,10 @@ import Foundation
 
 // mm/dd/yyyy
 
-typealias DiningHallHours = [Int: LocationHours]
+typealias DiningHallHours = [String: [LocationHours]]
 
 struct LocationHours {
+    var menuCategoryNumber: String?
     var dayOfWeekStart: Int
     var dayOfWeekEnd: Int?
     var timeOpen: String
