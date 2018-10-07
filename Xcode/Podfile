@@ -10,3 +10,16 @@ target 'Dining@PSU' do
   pod 'Firebase/Core'
   pod 'Alamofire'
 end
+  
+target 'DiningPSUIntentExtension' do
+    use_frameworks!
+    pod 'Alamofire'
+    
+end
+
+target 'DiningPSUIntentExtensionUI' do
+    use_frameworks!
+    pod 'Alamofire'
+    pod 'SnapKit', '~> 4.0.0'
+    
+end

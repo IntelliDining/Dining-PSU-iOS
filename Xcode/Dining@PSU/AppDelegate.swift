@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Intents
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,8 +21,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Start Firebase Analytics
         FirebaseApp.configure()
         
+        siriAuth()
+        
         launchMain()
         return true
+    }
+    
+    func siriAuth() {
+        INPreferences.requestSiriAuthorization { status in
+            if status == .authorized {
+                print("Hey, Siri!")
+            } else {
+                print("Nay, Siri!")
+            }
+        }
     }
     
     func launchMain() {

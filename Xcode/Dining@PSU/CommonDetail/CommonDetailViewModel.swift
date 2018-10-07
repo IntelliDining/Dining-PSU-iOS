@@ -17,7 +17,10 @@ class CommonDetailViewModel: NSObject, UITableViewDataSource, UITableViewDelegat
     var dataSource: CommonDetailDataSource
     var tableView: UITableView
     
+    var tableViewEmptyView: UIView?
+    
     var delegate: CDViewModelDelegate?
+    var selectionEnabled = true
     
     init(tableView: UITableView, dataSource: CommonDetailDataSource) {
         self.tableView = tableView
@@ -29,6 +32,29 @@ class CommonDetailViewModel: NSObject, UITableViewDataSource, UITableViewDelegat
     // - MARK: Tableview data source
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        if dataSource.filteredLocations.count == 0 {
+            // Build background view
+            if tableViewEmptyView == nil {
+                tableViewEmptyView = UIView()
+                tableViewEmptyView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                tableView.backgroundView = tableViewEmptyView
+                
+                let l = UILabel()
+                l.textColor = UIColor(hexString: "093162")
+                l.text = "No Menu"
+                
+                tableViewEmptyView!.addSubview(l)
+                l.snp.makeConstraints { make in
+                    make.centerX.equalTo(tableViewEmptyView!)
+                    make.top.equalTo(tableViewEmptyView!).offset(16)
+                }
+            } else {
+                tableView.backgroundView = tableViewEmptyView
+            }
+        } else {
+            tableView.backgroundView = nil
+        }
+        
         return dataSource.filteredLocations.count
     }
     
@@ -51,6 +77,10 @@ class CommonDetailViewModel: NSObject, UITableViewDataSource, UITableViewDelegat
         let items = getItems(inSection: indexPath.section)
         let item = items[indexPath.row]
         cell.configureWith(item)
+        if !selectionEnabled {
+            cell.accessoryType = .none
+            cell.selectionStyle = .none
+        }
         return cell
     }
     
@@ -63,8 +93,8 @@ class CommonDetailViewModel: NSObject, UITableViewDataSource, UITableViewDelegat
     // - MARK: Tableview seleciton
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard selectionEnabled else { return }
         tableView.deselectRow(at: indexPath, animated: true)
-        
         let items = getItems(inSection: indexPath.section)
         let item = items[indexPath.row]
         delegate?.selected(menuItem: item)

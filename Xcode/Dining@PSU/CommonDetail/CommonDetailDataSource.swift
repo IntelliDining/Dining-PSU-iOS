@@ -9,7 +9,7 @@
 import Foundation
 
 class CommonDetailDataSource {
-    var diningHall: DiningHall
+    var diningHallID: String
     
     var date: Date = Date()
     var selectedMeal: MealName = .breakfast {
@@ -21,8 +21,8 @@ class CommonDetailDataSource {
     var locations: [Location] = []
     var filteredLocations: [Location] = []
     
-    init(diningHall: DiningHall) {
-        self.diningHall = diningHall
+    init(diningHallID: String) {
+        self.diningHallID = diningHallID
     }
     
     func download(completion: @escaping (Result<Bool>) -> Void) {
@@ -33,7 +33,7 @@ class CommonDetailDataSource {
         let group = DispatchGroup()
         group.enter()
         
-        DataService.getLocations(diningHall: diningHall) { result in
+        DataService.getLocations(diningHallID: diningHallID) { result in
             switch result {
             case .success(value: let locations):
                 self.locations = locations
@@ -45,7 +45,7 @@ class CommonDetailDataSource {
         }
         
         group.enter()
-        DataService.getMenu(date: date, diningHallID: diningHall.id) { result in
+        DataService.getMenu(date: date, diningHallID: diningHallID) { result in
             switch result {
             case .success(let menu):
                 self.menu = menu

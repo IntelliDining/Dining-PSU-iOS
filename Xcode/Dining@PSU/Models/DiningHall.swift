@@ -15,6 +15,7 @@ struct DiningHall {
     var campusCode: String
     var latitude: Double
     var longitude: Double
+    var siriName: String = ""
     
     init(from json: [String: Any]) {
         if let s = json["locationNumber"] as? String {
@@ -44,16 +45,22 @@ struct DiningHall {
         switch id {
         case "11":
             image = UIImage(named: "findlay")!
+            siriName = "Findlay"
         case "14":
             image = UIImage(named: "pollock")!
+            siriName = "Pollock"
         case "24":
             image = UIImage(named: "the-mix")!
+            siriName = "The Mix"
         case "13":
             image = UIImage(named:  "south")!
+            siriName = "South"
         case "16":
             image = UIImage(named: "west")!
+            siriName = "West"
         case "17":
             image = UIImage(named: "north")!
+            siriName = "North"
         default:
             break
         }

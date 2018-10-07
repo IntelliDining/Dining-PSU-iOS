@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Intents
+import IntentsUI
 
-class CommonDetailVC: UIViewController {
+class CommonDetailVC: UIViewController, CDViewModelDelegate, INUIAddVoiceShortcutViewControllerDelegate {
+    
     let appTintColor = UIColor(hexString: "093162")
     
     var datePicker: JZDatepicker!
@@ -22,6 +25,7 @@ class CommonDetailVC: UIViewController {
     
     var tableView: UITableView = {
         let t = UITableView(frame: .zero, style: .plain)
+        t.backgroundColor = .white
         return t
     }()
     
@@ -31,9 +35,14 @@ class CommonDetailVC: UIViewController {
         return r
     }()
     
-    lazy var dataSource = CommonDetailDataSource(diningHall: self.diningHall)
+    lazy var dataSource = CommonDetailDataSource(diningHallID: self.diningHall.id)
     lazy var viewModel = CommonDetailViewModel(tableView: self.tableView,
                                                dataSource: self.dataSource)
+    
+    lazy var infoButton: UIBarButtonItem = {
+        let b = UIBarButtonItem(image: UIImage(named: "siri")!, style: .plain, target: self, action: #selector(openInfo))
+        return b
+    }()
     
     
     var diningHall: DiningHall
@@ -52,6 +61,7 @@ class CommonDetailVC: UIViewController {
         edgesForExtendedLayout = []
         view.backgroundColor = .white
         navigationItem.title = diningHall.title.replacingOccurrences(of: "\n", with: " ")
+        navigationItem.rightBarButtonItem = infoButton
         
         let tableViewController = UITableViewController()
         tableViewController.tableView = tableView
@@ -62,6 +72,8 @@ class CommonDetailVC: UIViewController {
         tableView.dataSource = viewModel
         tableView.tableFooterView = UIView()
         
+        viewModel.delegate = self
+        
         setupViews()
         datePicker.fillCurrentYear()
         datePicker.selectDate(Date())
@@ -70,7 +82,7 @@ class CommonDetailVC: UIViewController {
     }
     
     @objc func load() {
-        self.tableView.contentOffset = CGPoint(x: 0, y: 0)
+        //self.tableView.contentOffset = CGPoint(x: 0, y: 0)
         startLoadingAnimations()
         dataSource.download { result in
             switch result {
@@ -88,28 +100,39 @@ class CommonDetailVC: UIViewController {
     
     func validateSegmentedControl() {
         
+        var disabledCount = 0
+        
         if dataSource.filterLocations(mealName: .breakfast).count == 0 {
             segmentedControl.setEnabled(false, forSegmentAt: 0)
+            disabledCount += 1
         } else {
             segmentedControl.setEnabled(true, forSegmentAt: 0)
         }
         
         if dataSource.filterLocations(mealName: .lunch).count == 0 {
             segmentedControl.setEnabled(false, forSegmentAt: 1)
+            disabledCount += 1
         } else {
             segmentedControl.setEnabled(true, forSegmentAt: 1)
         }
         
         if dataSource.filterLocations(mealName: .dinner).count == 0 {
             segmentedControl.setEnabled(false, forSegmentAt: 2)
+            disabledCount += 1
         } else {
             segmentedControl.setEnabled(true, forSegmentAt: 2)
         }
         
         if dataSource.filterLocations(mealName: .fourthMeal).count == 0 {
             segmentedControl.setEnabled(false, forSegmentAt: 3)
+            disabledCount += 1
         } else {
             segmentedControl.setEnabled(true, forSegmentAt: 3)
+        }
+        
+        if disabledCount == 4 {
+            segmentedControlChanged()
+            return
         }
         
         if segmentedControl.selectedSegmentIndex == UISegmentedControl.noSegment || !segmentedControl.isEnabledForSegment(at: segmentedControl.selectedSegmentIndex) {
@@ -151,20 +174,56 @@ class CommonDetailVC: UIViewController {
             dataSource.selectedMeal = .lunch
         case 2:
             dataSource.selectedMeal = .dinner
-        default:
+        case 3:
             dataSource.selectedMeal = .fourthMeal
+        default:
+            dataSource.selectedMeal = .none
         }
         self.tableView.contentOffset = CGPoint(x: 0, y: 0)
         tableView.reloadData()
     }
     
+    func selected(menuItem: MenuItem) {
+        let detail = MenuItemDetailVC(menuItem: menuItem)
+        navigationController?.pushViewController(detail, animated: true)
+    }
+    
+    @objc func openInfo() {
+        donateInteraction()
+    }
+    
+    func donateInteraction() {
+        let intent = ViewMenuIntent()
+        
+        let meal = dataSource.selectedMeal.rawValue
+        let location = diningHall.siriName
+        intent.suggestedInvocationPhrase = "What's the \(meal) menu at \(location)?"
+        intent.meal = meal
+        intent.location = location
+        let shortcut = INShortcut(intent: intent)!
+        let viewController = INUIAddVoiceShortcutViewController(shortcut: shortcut)
+        viewController.modalPresentationStyle = .formSheet
+        viewController.delegate = self
+        present(viewController, animated: true, completion: nil)
+    }
+    
+    func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func addVoiceShortcutViewControllerDidCancel(_ controller: INUIAddVoiceShortcutViewController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
     func startLoadingAnimations() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         tableView.setContentOffset(CGPoint(x: 0, y: tableView.contentOffset.y-refreshControl.frame.size.height),
                                    animated: true)
         refreshControl.beginRefreshing()
     }
     
     func stopLoadingAnimations() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         if refreshControl.isRefreshing {
             refreshControl.endRefreshing()
         }

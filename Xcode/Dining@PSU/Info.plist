@@ -18,8 +18,23 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>DEVELOPMENT</string>
+	<key>INAlternativeAppNames</key>
+	<array>
+		<dict>
+			<key>INAlternativeAppName</key>
+			<string>Dining@PSU</string>
+			<key>INAlternativeAppNamePronunciationHint</key>
+			<string>Die ning at P S U</string>
+		</dict>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSSiriUsageDescription</key>
+	<string>Dining@PSU wants to provide easy access to dining menus</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>ViewMenuIntent</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

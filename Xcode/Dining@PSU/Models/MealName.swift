@@ -14,4 +14,5 @@ enum MealName: String {
     case dinner = "Dinner"
     //case dinnerLateNight = "Dinner/Late Night"
     case fourthMeal = "4th Meal"
+    case none = "asdasdasdasd"
 }

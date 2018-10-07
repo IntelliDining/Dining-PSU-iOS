@@ -96,8 +96,8 @@ class DataService {
         }
     }
     
-    static func getLocations(diningHall: DiningHall, completion: @escaping (Result<[Location]>) -> Void) {
-        get("facilities/locations", ["location": diningHall.id], completion)
+    static func getLocations(diningHallID: String, completion: @escaping (Result<[Location]>) -> Void) {
+        get("facilities/locations", ["location": diningHallID], completion)
     }
     
     // mm/dd/yyyy
