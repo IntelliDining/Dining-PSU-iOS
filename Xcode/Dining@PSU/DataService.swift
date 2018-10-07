@@ -11,7 +11,7 @@ import Alamofire
 
 class DataService {
     
-    func getDiningHalls(completion: @escaping (Result<[DiningHall]>) -> Void) {
+    static func getDiningHalls(completion: @escaping (Result<[DiningHall]>) -> Void) {
         let e = DiningHall(title: "Findlay\nDining\nCommons",
                            image: UIImage(named: "findlay")!,
                            campusCode: "",
@@ -52,16 +52,16 @@ class DataService {
         completion(Result.success(value: diningHalls))
     }
     
-    func getHours(completion: @escaping (Result<DiningHallHours>) -> Void) {
+    static func getHours(completion: @escaping (Result<DiningHallHours>) -> Void) {
         completion(Result.success(value: [:]))
     }
     
-    func getLocations(diningHall: DiningHall, completion: @escaping (Result<[Location]>) -> Void) {
+    static func getLocations(diningHall: DiningHall, completion: @escaping (Result<[Location]>) -> Void) {
         completion(Result.success(value: []))
     }
     
     // mm/dd/yyyy
-    func getMenu(date: Date, location: String, completion: @escaping (Result<Menu>) -> Void) {
+    static func getMenu(date: Date, diningHallID: String, completion: @escaping (Result<Menu>) -> Void) {
         let formatter = DateFormatter()
         formatter.dateFormat = "mm/dd/yyyy"
         let dateString = formatter.string(from: date)

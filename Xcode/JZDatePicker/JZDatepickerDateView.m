@@ -30,6 +30,8 @@ const CGFloat kJZDatepickerBackgroundCircleWidth = 30.;
         [self setup];
     }
     
+    self.backgroundColor = [UIColor clearColor];
+    
     return self;
 }
 
@@ -151,10 +153,10 @@ const CGFloat kJZDatepickerBackgroundCircleWidth = 30.;
     [super setSelected:selected];
     if (selected) {
         self.circleView.alpha = 1.0f;
-        self.dayLabel.textColor = [UIColor blackColor];
+        self.dayLabel.textColor = [UIColor whiteColor];
     } else {
         self.circleView.alpha = 0.0f;
-        self.dayLabel.textColor = [UIColor whiteColor];
+        self.dayLabel.textColor = [UIColor blackColor];
     }
 }
 
@@ -164,8 +166,8 @@ const CGFloat kJZDatepickerBackgroundCircleWidth = 30.;
 {
     if (!_dayLabel) {
         _dayLabel = [[UILabel alloc] init];
-        _dayLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:20];
-        _dayLabel.textColor = [UIColor whiteColor];
+        _dayLabel.font = [UIFont systemFontOfSize:20];
+        _dayLabel.textColor = [UIColor blackColor];
         _dayLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_dayLabel];
     }
@@ -176,9 +178,9 @@ const CGFloat kJZDatepickerBackgroundCircleWidth = 30.;
 {
     if (!_topLabel) {
         _topLabel = [[UILabel alloc] init];
-        _topLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:12];
+        _topLabel.font = [UIFont systemFontOfSize:12 weight:UIFontWeightMedium];
         _topLabel.textAlignment = NSTextAlignmentCenter;
-        _topLabel.textColor = [UIColor whiteColor];
+        _topLabel.textColor = [UIColor blackColor];
         [self addSubview:_topLabel];
     }
     return _topLabel;

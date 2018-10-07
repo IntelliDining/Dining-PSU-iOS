@@ -11,6 +11,7 @@ import SnapKit
 
 class SelectCommonsVC: UIViewController, SelectCommonsViewModelDelegate {
     
+    
     var collectionView: UICollectionView = {
         let flow = UICollectionViewFlowLayout()
         flow.scrollDirection = .vertical
@@ -19,6 +20,12 @@ class SelectCommonsVC: UIViewController, SelectCommonsViewModelDelegate {
         c.alwaysBounceVertical = true
         c.delaysContentTouches = false
         return c
+    }()
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let r = UIRefreshControl()
+        r.addTarget(self, action: #selector(reload), for: .valueChanged)
+        return r
     }()
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
@@ -46,11 +53,26 @@ class SelectCommonsVC: UIViewController, SelectCommonsViewModelDelegate {
         view.backgroundColor = .white
         navigationItem.title = "Dining Commons"
         
-        dataSource.preload()
-        
         collectionView.delegate = viewModel
         collectionView.dataSource = viewModel
-        collectionView.reloadData()
+        collectionView.addSubview(refreshControl)
+        
+        reload()
+    }
+    
+    @objc func reload() {
+        startLoadingAnimations()
+        dataSource.download { result in
+            switch result {
+            case .success:
+                self.collectionView.reloadData()
+            case .failure(error: let error):
+                let alert = UIAlertController(title: "Failed to load dining commons.", message: error, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            self.stopLoadingAnimations()
+        }
     }
     
     func setupContraints() {
@@ -63,6 +85,17 @@ class SelectCommonsVC: UIViewController, SelectCommonsViewModelDelegate {
     func selected(diningHall: DiningHall) {
         let detail = CommonDetailVC(diningHall: diningHall)
         navigationController?.pushViewController(detail, animated: true)
+    }
+    
+    func startLoadingAnimations() {
+        collectionView.setContentOffset(CGPoint(x: 0, y: collectionView.contentOffset.y-refreshControl.frame.size.height), animated: true)
+        refreshControl.beginRefreshing()
+    }
+    
+    func stopLoadingAnimations() {
+        if refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        }
     }
 
 }

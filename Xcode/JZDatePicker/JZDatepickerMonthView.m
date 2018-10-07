@@ -52,7 +52,8 @@
         _monthLabel = [[UILabel alloc] init];
         _monthLabel.lineBreakMode = NSLineBreakByCharWrapping;
         _monthLabel.transform = CGAffineTransformMakeRotation((M_PI)/2);
-        _monthLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:16];
+        _monthLabel.font = [UIFont systemFontOfSize:16 weight:UIFontWeightMedium];
+        _monthLabel.textColor = [UIColor whiteColor];
     }
     return _monthLabel;
 }

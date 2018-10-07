@@ -18,8 +18,8 @@ NSString * const kJZDatepickerHeaderIdentifier = @"kJZDatepickerHeaderIndentifie
 
 @property (strong, nonatomic) NSIndexPath *selectedIndexPath;
 @property (strong, nonatomic, readwrite) NSDate *selectedDate;
-// map dates into a dictionary so that we can group them into sections
-@property (strong, nonatomic) NSMutableDictionary *monthDaysDict;
+// map dates into an array so that we can group them into sections
+@property (strong, nonatomic) NSMutableArray *monthDaysArray;
 
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
@@ -47,7 +47,7 @@ NSString * const kJZDatepickerHeaderIdentifier = @"kJZDatepickerHeaderIndentifie
 - (void)setupViews
 {
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    self.backgroundColor = [UIColor blackColor];
+    self.backgroundColor = [UIColor clearColor];
 }
 
 #pragma mark Setters | Getters
@@ -61,43 +61,39 @@ NSString * const kJZDatepickerHeaderIdentifier = @"kJZDatepickerHeaderIndentifie
     return _dateFormatter;
 }
 
-- (NSMutableDictionary *)monthDaysDict
+- (NSMutableArray *)monthDaysArray
 {
-    if (!_monthDaysDict) {
-        _monthDaysDict = [[NSMutableDictionary alloc] init];
+    if (!_monthDaysArray) {
+        _monthDaysArray = [[NSMutableArray alloc] init];
     }
-    return _monthDaysDict;
+    return _monthDaysArray;
 }
 
 - (void)setDates:(NSArray *)dates
 {
     _dates = dates;
     
-    self.monthDaysDict = [self mapDatesIntoDictionay:dates];
+    self.monthDaysArray = [self mapDatesIntoArray:dates];
     
     [self.datesCollectionView reloadData];
     
     self.selectedDate = nil;
 }
 
-- (NSMutableDictionary *)mapDatesIntoDictionay:(NSArray *)dates
+- (NSMutableArray *)mapDatesIntoArray:(NSArray *)dates
 {
-    NSMutableDictionary *resultDict = [[NSMutableDictionary alloc] init];
+    NSMutableArray *resultDict = [[NSMutableArray alloc] init];
     // use month sequence as key to the dictionary
     NSString *prevYearMonth = @"";
-    NSString *monthCountString = @"";
-    NSInteger monthCount = 0;
     for (NSDate *date in dates) {
         [self.dateFormatter setDateFormat:@"yyyy-MM"];
         NSString *yearMonth = [self.dateFormatter stringFromDate:date];
         // if this date's month is different from previous date's month, add an array entry
         if ( [yearMonth isEqualToString:prevYearMonth] == NO) {
-            monthCountString = [NSString stringWithFormat:@"%ld", (long)monthCount];
-            resultDict[monthCountString] = [[NSMutableArray alloc] init];
-            monthCount ++; // increase month count
+            [resultDict addObject: [[NSMutableArray alloc] init]];
         }
         // add the date into the entry
-        NSMutableArray *daysInMonth = resultDict[monthCountString];
+        NSMutableArray *daysInMonth = resultDict.lastObject;
         [daysInMonth addObject:date];
         
         prevYearMonth = yearMonth;
@@ -109,7 +105,16 @@ NSString * const kJZDatepickerHeaderIdentifier = @"kJZDatepickerHeaderIndentifie
 {
     _selectedDate = selectedDate;
     
-    NSIndexPath *selectedCellIndexPath = [NSIndexPath indexPathForItem:[self.dates indexOfObject:selectedDate] inSection:0];
+    NSIndexPath *selectedCellIndexPath;
+    for (int i = 0; i < [self.monthDaysArray count]; i++) {
+        NSMutableArray *arr = self.monthDaysArray[i];
+        for (int j = 0; j < [arr count]; j++) {
+            if ([selectedDate isEqualToDate: arr[j]]) {
+                selectedCellIndexPath = [NSIndexPath indexPathForRow:j inSection:i];
+            }
+        }
+    }
+    
     [self.datesCollectionView deselectItemAtIndexPath:self.selectedIndexPath animated:YES];
     [self.datesCollectionView selectItemAtIndexPath:selectedCellIndexPath animated:YES scrollPosition:UICollectionViewScrollPositionCenteredHorizontally];
     self.selectedIndexPath = selectedCellIndexPath;
@@ -136,6 +141,7 @@ NSString * const kJZDatepickerHeaderIdentifier = @"kJZDatepickerHeaderIndentifie
         _datesCollectionView.dataSource = self;
         _datesCollectionView.delegate = self;
         _datesCollectionView.scrollsToTop = NO;
+        _datesCollectionView.backgroundColor = [UIColor clearColor];
         [self addSubview:_datesCollectionView];
     }
     return _datesCollectionView;
@@ -247,12 +253,13 @@ NSString * const kJZDatepickerHeaderIdentifier = @"kJZDatepickerHeaderIndentifie
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return [self.monthDaysDict count];
+    return [self.monthDaysArray count];
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return  [[self daysArrayInSection:section] count];
+    NSArray *arr = self.monthDaysArray[section];
+    return [arr count];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -266,7 +273,8 @@ NSString * const kJZDatepickerHeaderIdentifier = @"kJZDatepickerHeaderIndentifie
 {
     JZDatepickerMonthView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kJZDatepickerHeaderIdentifier forIndexPath:indexPath];
     // use first date's month
-    NSDate *date = [self daysArrayInSection:indexPath.section].firstObject;
+    NSArray *arr = self.monthDaysArray[indexPath.section];
+    NSDate *date = arr.firstObject;
     view.date = date;
     return view;
 }
@@ -293,17 +301,10 @@ NSString * const kJZDatepickerHeaderIdentifier = @"kJZDatepickerHeaderIndentifie
 
 #pragma mark - helper methods
 
-- (NSArray *)daysArrayInSection:(NSInteger)section
-{
-    NSString *sectionStr = [NSString stringWithFormat:@"%ld", (long)section];
-    NSArray *daysInMonth = self.monthDaysDict[sectionStr];
-    return daysInMonth;
-}
-
 - (NSDate *)dateAtIndexPath: (NSIndexPath *)indexPath
 {
-     NSArray *daysInMonthArray = [self daysArrayInSection:indexPath.section];
-    return daysInMonthArray[indexPath.item];
+    NSMutableArray *arr = self.monthDaysArray[indexPath.section];
+    return arr[indexPath.row];
 }
 
 @end

@@ -53,7 +53,7 @@ class IDNavigationController: UINavigationController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        gradientBackground.applyGradient(withColours: [UIColor(hexString: "0D3359"),
+        gradientBackground.applyGradient(withColours: [UIColor(hexString: "093162"),
                                                        UIColor(hexString: "8743CE")],
                                          gradientOrientation: .horizontal)
     }
