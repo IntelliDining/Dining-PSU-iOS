@@ -40,7 +40,11 @@ class IDNavigationController: UINavigationController, GADBannerViewDelegate {
     func setupAds() {
         view.addSubview(bannerView)
         bannerView.snp.makeConstraints { make in
-            make.bottom.equalTo(view.safeAreaInsets.bottom)
+            if #available(iOS 11.0, *) {
+                make.bottom.equalTo(view.safeAreaInsets.bottom)
+            } else {
+                make.bottom.equalTo(view.snp.bottom)
+            }
             make.centerX.equalTo(view)
         }
         
