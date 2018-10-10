@@ -8,9 +8,9 @@
 
 import UIKit
 import SnapKit
+import GoogleMobileAds
 
 class SelectCommonsVC: UIViewController, SelectCommonsViewModelDelegate {
-    
     
     var collectionView: UICollectionView = {
         let flow = UICollectionViewFlowLayout()
@@ -19,6 +19,7 @@ class SelectCommonsVC: UIViewController, SelectCommonsViewModelDelegate {
         c.backgroundColor = .clear
         c.alwaysBounceVertical = true
         c.delaysContentTouches = false
+        c.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         return c
     }()
     
@@ -28,12 +29,19 @@ class SelectCommonsVC: UIViewController, SelectCommonsViewModelDelegate {
         return r
     }()
     
+    lazy var infoButton: UIBarButtonItem = {
+        let b = UIBarButtonItem(image: UIImage(named: "info")!, style: .plain, target: self, action: #selector(openAboutVC))
+        return b
+    }()
+    
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
     var dataSource: SelectCommonsDataSource = SelectCommonsDataSource()
     lazy var viewModel = SelectCommonsViewModel(collectionView: self.collectionView,
                                                 viewController: self,
                                                 data: self.dataSource)
+    
+    var bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -52,6 +60,7 @@ class SelectCommonsVC: UIViewController, SelectCommonsViewModelDelegate {
         setNeedsStatusBarAppearanceUpdate()
         view.backgroundColor = .white
         navigationItem.title = "Dining Commons"
+        navigationItem.rightBarButtonItem = infoButton
         
         collectionView.delegate = viewModel
         collectionView.dataSource = viewModel
@@ -73,10 +82,12 @@ class SelectCommonsVC: UIViewController, SelectCommonsViewModelDelegate {
             }
             self.stopLoadingAnimations()
         }
-        
-//        DataService.getHours { result in
-//            
-//        }
+    }
+    
+    @objc func openAboutVC() {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let aboutVC = storyboard.instantiateViewController(withIdentifier: "aboutVC")
+        navigationController?.pushViewController(aboutVC, animated: true)
     }
     
     func setupContraints() {
@@ -94,12 +105,25 @@ class SelectCommonsVC: UIViewController, SelectCommonsViewModelDelegate {
     func startLoadingAnimations() {
         collectionView.setContentOffset(CGPoint(x: 0, y: collectionView.contentOffset.y-refreshControl.frame.size.height), animated: true)
         refreshControl.beginRefreshing()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
     
     func stopLoadingAnimations() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         if refreshControl.isRefreshing {
-            refreshControl.endRefreshing()
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
         }
     }
+}
 
+extension SelectCommonsVC: GADBannerViewDelegate {
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        bannerView.alpha = 0
+        bannerView.isHidden = false
+        UIView.animate(withDuration: 1, animations: {
+            bannerView.alpha = 1
+        })
+    }
 }

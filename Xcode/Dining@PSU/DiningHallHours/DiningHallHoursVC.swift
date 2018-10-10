@@ -14,6 +14,7 @@ class DiningHallHoursVC: UIViewController, UITableViewDataSource, UITableViewDel
         let t = UITableView()
         t.delegate = self
         t.dataSource = self
+        t.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         return t
     }()
     lazy var refreshControl: UIRefreshControl = {
@@ -48,6 +49,8 @@ class DiningHallHoursVC: UIViewController, UITableViewDataSource, UITableViewDel
         tableViewController.tableView = tableView
         tableViewController.refreshControl = refreshControl
         addChild(tableViewController)
+        
+        tableView.tableFooterView = UIView()
         tableView.register(HourCell.self, forCellReuseIdentifier: "HourCell")
         
         load()
@@ -81,7 +84,9 @@ class DiningHallHoursVC: UIViewController, UITableViewDataSource, UITableViewDel
     func stopLoadingAnimations() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         if refreshControl.isRefreshing {
-            refreshControl.endRefreshing()
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
         }
     }
     

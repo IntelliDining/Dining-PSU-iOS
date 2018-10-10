@@ -27,7 +27,6 @@
 		FC035C1E216958E20026E672 /* ShrinkingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C1D216958E20026E672 /* ShrinkingView.swift */; };
 		FC035C2021695A900026E672 /* IDNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C1F21695A900026E672 /* IDNavigationController.swift */; };
 		FC035C2221695D970026E672 /* HexColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C2121695D970026E672 /* HexColors.swift */; };
-		FC035C2421695F960026E672 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC035C2321695F960026E672 /* GoogleService-Info.plist */; };
 		FC035C2921696D620026E672 /* CommonDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C2821696D620026E672 /* CommonDetailVC.swift */; };
 		FC035C2E216987D80026E672 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C2D216987D80026E672 /* Location.swift */; };
 		FC035C302169888C0026E672 /* LocationHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C2F2169888C0026E672 /* LocationHours.swift */; };
@@ -42,6 +41,8 @@
 		FC03B950216E33750027920D /* DiningHallHoursVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC03B94F216E33750027920D /* DiningHallHoursVC.swift */; };
 		FC03B952216E34120027920D /* DiningHallHoursDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC03B951216E34120027920D /* DiningHallHoursDataSource.swift */; };
 		FC03B954216E380E0027920D /* HourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC03B953216E380E0027920D /* HourCell.swift */; };
+		FC173559216E5EA20054373F /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC173558216E5EA20054373F /* AboutVC.swift */; };
+		FC400AB0216EA01200426C7C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC400AAF216EA01100426C7C /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -93,7 +94,6 @@
 		FC035C1D216958E20026E672 /* ShrinkingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrinkingView.swift; sourceTree = "<group>"; };
 		FC035C1F21695A900026E672 /* IDNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDNavigationController.swift; sourceTree = "<group>"; };
 		FC035C2121695D970026E672 /* HexColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColors.swift; sourceTree = "<group>"; };
-		FC035C2321695F960026E672 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FC035C2821696D620026E672 /* CommonDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDetailVC.swift; sourceTree = "<group>"; };
 		FC035C2A216970660026E672 /* Dining@PSU-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dining@PSU-Bridging-Header.h"; sourceTree = "<group>"; };
 		FC035C2D216987D80026E672 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -111,6 +111,8 @@
 		FC03B94F216E33750027920D /* DiningHallHoursVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHallHoursVC.swift; sourceTree = "<group>"; };
 		FC03B951216E34120027920D /* DiningHallHoursDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHallHoursDataSource.swift; sourceTree = "<group>"; };
 		FC03B953216E380E0027920D /* HourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourCell.swift; sourceTree = "<group>"; };
+		FC173558216E5EA20054373F /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
+		FC400AAF216EA01100426C7C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				FC035C2521696D290026E672 /* CommonDetail */,
 				FC03B94E216E33510027920D /* DiningHallHours */,
 				FC035C41216A407D0026E672 /* MenuItemDetail */,
+				FC173558216E5EA20054373F /* AboutVC.swift */,
 				FC035C13216954CE0026E672 /* Models */,
 				FC035C18216957870026E672 /* Appearance */,
 				FC00D46C21693BEF004722E1 /* Main.storyboard */,
@@ -186,7 +189,7 @@
 				FC00D47121693BF0004722E1 /* LaunchScreen.storyboard */,
 				FC035C2A216970660026E672 /* Dining@PSU-Bridging-Header.h */,
 				FC00D47421693BF0004722E1 /* Info.plist */,
-				FC035C2321695F960026E672 /* GoogleService-Info.plist */,
+				FC400AAF216EA01100426C7C /* GoogleService-Info.plist */,
 			);
 			path = "Dining@PSU";
 			sourceTree = "<group>";
@@ -344,7 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC00D47321693BF0004722E1 /* LaunchScreen.storyboard in Resources */,
-				FC035C2421695F960026E672 /* GoogleService-Info.plist in Resources */,
+				FC400AB0216EA01200426C7C /* GoogleService-Info.plist in Resources */,
 				FC00D47021693BF0004722E1 /* Assets.xcassets in Resources */,
 				FC00D46E21693BEF004722E1 /* Main.storyboard in Resources */,
 			);
@@ -453,6 +456,7 @@
 				FC035C17216955FE0026E672 /* DiningHallCell.swift in Sources */,
 				FC035C2921696D620026E672 /* CommonDetailVC.swift in Sources */,
 				FC035C12216954A60026E672 /* SelectCommonsDataSource.swift in Sources */,
+				FC173559216E5EA20054373F /* AboutVC.swift in Sources */,
 				FC035C32216989860026E672 /* MealName.swift in Sources */,
 				FC035C3621698CF80026E672 /* DataService.swift in Sources */,
 				FC035C3A2169AB280026E672 /* CommonDetailDataSource.swift in Sources */,

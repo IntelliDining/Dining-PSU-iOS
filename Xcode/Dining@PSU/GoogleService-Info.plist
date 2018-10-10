@@ -36,5 +36,7 @@
 	<string>1:38290618628:ios:3dc8b2441b4db9bb</string>
 	<key>DATABASE_URL</key>
 	<string>https://dining-psu.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-9355707484240783~6907150638</string>
 </dict>
 </plist>

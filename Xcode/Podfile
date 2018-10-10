@@ -6,20 +6,8 @@ target 'Dining@PSU' do
   use_frameworks!
 
   # Pods for Dining@PSU
-  pod 'SnapKit', '~> 4.0.0'
+  pod 'SnapKit', '~> 4.0.0' 
   pod 'Firebase/Core'
+  pod 'Firebase/AdMob'
   pod 'Alamofire'
-end
-  
-target 'DiningPSUIntentExtension' do
-    use_frameworks!
-    pod 'Alamofire'
-    
-end
-
-target 'DiningPSUIntentExtensionUI' do
-    use_frameworks!
-    pod 'Alamofire'
-    pod 'SnapKit', '~> 4.0.0'
-    
 end

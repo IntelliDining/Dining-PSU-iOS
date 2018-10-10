@@ -24,6 +24,7 @@ class CommonDetailVC: UIViewController, CDViewModelDelegate {
     var tableView: UITableView = {
         let t = UITableView(frame: .zero, style: .plain)
         t.backgroundColor = .white
+        t.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         return t
     }()
     
@@ -38,7 +39,7 @@ class CommonDetailVC: UIViewController, CDViewModelDelegate {
                                                dataSource: self.dataSource)
     
     lazy var infoButton: UIBarButtonItem = {
-        let b = UIBarButtonItem(image: UIImage(named: "info")!, style: .plain, target: self, action: #selector(openInfo))
+        let b = UIBarButtonItem(image: UIImage(named: "infoclock")!, style: .plain, target: self, action: #selector(openInfo))
         return b
     }()
     
@@ -201,7 +202,9 @@ class CommonDetailVC: UIViewController, CDViewModelDelegate {
     func stopLoadingAnimations() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         if refreshControl.isRefreshing {
-            refreshControl.endRefreshing()
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
         }
     }
     
