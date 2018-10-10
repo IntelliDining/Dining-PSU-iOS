@@ -19,7 +19,7 @@ class MenuItemCell: UITableViewCell {
     
     var title: UILabel = {
         let l = UILabel()
-        l.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        l.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         return l
     }()
     
@@ -55,6 +55,7 @@ class MenuItemCell: UITableViewCell {
         labelStack.snp.makeConstraints { make in
             make.left.equalTo(contentView).offset(16)
             make.centerY.equalTo(contentView)
+            make.right.lessThanOrEqualTo(contentView).offset(8)
         }
     }
 

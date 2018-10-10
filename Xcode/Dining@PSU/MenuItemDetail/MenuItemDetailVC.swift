@@ -16,6 +16,13 @@ class MenuItemDetailVC: UIViewController {
         return s
     }()
     
+    var itemName: UILabel = {
+        let l = UILabel()
+        l.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+        l.numberOfLines = 0
+        return l
+    }()
+    
     var servingSize: UILabel = {
         let l = UILabel()
         l.font = UIFont.systemFont(ofSize: 17, weight: .bold)
@@ -170,10 +177,11 @@ class MenuItemDetailVC: UIViewController {
         view.backgroundColor = .white
         populate()
         
-        navigationItem.title = menuItem.recipePrintAsName
+        navigationItem.title = "Menu Item Info"
     }
     
     func populate() {
+        itemName.text = menuItem.recipePrintAsName
         servingSizeLabel.text = menuItem.serviceSize
         caloriesLabel.text = menuItem.calories
         caloriesFromFatLabel.text = "Calories From Fat \(menuItem.caloriesFromFat)"
@@ -204,9 +212,16 @@ class MenuItemDetailVC: UIViewController {
             make.edges.equalTo(scrollView)
         }
         
+        contentView.addSubview(itemName)
+        itemName.snp.makeConstraints { make in
+            make.top.equalTo(contentView).offset(16)
+            make.right.equalTo(contentView).offset(-16)
+            make.left.equalTo(contentView).offset(16)
+        }
+        
         contentView.addSubview(servingSize)
         servingSize.snp.makeConstraints { make in
-            make.top.equalTo(contentView).offset(16)
+            make.top.equalTo(itemName.snp.bottom).offset(16)
             make.left.equalTo(contentView).offset(16)
         }
         contentView.addSubview(servingSizeLabel)
