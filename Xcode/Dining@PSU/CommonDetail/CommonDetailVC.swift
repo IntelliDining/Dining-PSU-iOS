@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CommonDetailVC: UIViewController, CDViewModelDelegate, INUIAddVoiceShortcutViewControllerDelegate {
+class CommonDetailVC: UIViewController, CDViewModelDelegate {
     
     let appTintColor = UIColor(hexString: "093162")
     
@@ -187,7 +187,8 @@ class CommonDetailVC: UIViewController, CDViewModelDelegate, INUIAddVoiceShortcu
     }
     
     @objc func openInfo() {
-        
+        let vc = DiningHallHoursVC(diningHall: self.diningHall)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func startLoadingAnimations() {

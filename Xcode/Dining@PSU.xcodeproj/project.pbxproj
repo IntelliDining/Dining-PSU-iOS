@@ -39,6 +39,9 @@
 		FC035C3C2169B9860026E672 /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C3B2169B9860026E672 /* MenuItemCell.swift */; };
 		FC035C3E2169BDB10026E672 /* CommonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C3D2169BDB10026E672 /* CommonDetailViewModel.swift */; };
 		FC035C43216A40B10026E672 /* MenuItemDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C42216A40B10026E672 /* MenuItemDetailVC.swift */; };
+		FC03B950216E33750027920D /* DiningHallHoursVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC03B94F216E33750027920D /* DiningHallHoursVC.swift */; };
+		FC03B952216E34120027920D /* DiningHallHoursDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC03B951216E34120027920D /* DiningHallHoursDataSource.swift */; };
+		FC03B954216E380E0027920D /* HourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC03B953216E380E0027920D /* HourCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -105,6 +108,9 @@
 		FC035C42216A40B10026E672 /* MenuItemDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetailVC.swift; sourceTree = "<group>"; };
 		FC035C44216A58660026E672 /* Dining@PSU.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Dining@PSU.entitlements"; sourceTree = "<group>"; };
 		FC035C55216A5E910026E672 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		FC03B94F216E33750027920D /* DiningHallHoursVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHallHoursVC.swift; sourceTree = "<group>"; };
+		FC03B951216E34120027920D /* DiningHallHoursDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHallHoursDataSource.swift; sourceTree = "<group>"; };
+		FC03B953216E380E0027920D /* HourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +177,7 @@
 				FC035C1F21695A900026E672 /* IDNavigationController.swift */,
 				FC035C10216953920026E672 /* SelectCommons */,
 				FC035C2521696D290026E672 /* CommonDetail */,
+				FC03B94E216E33510027920D /* DiningHallHours */,
 				FC035C41216A407D0026E672 /* MenuItemDetail */,
 				FC035C13216954CE0026E672 /* Models */,
 				FC035C18216957870026E672 /* Appearance */,
@@ -253,6 +260,16 @@
 				FC035C42216A40B10026E672 /* MenuItemDetailVC.swift */,
 			);
 			path = MenuItemDetail;
+			sourceTree = "<group>";
+		};
+		FC03B94E216E33510027920D /* DiningHallHours */ = {
+			isa = PBXGroup;
+			children = (
+				FC03B94F216E33750027920D /* DiningHallHoursVC.swift */,
+				FC03B951216E34120027920D /* DiningHallHoursDataSource.swift */,
+				FC03B953216E380E0027920D /* HourCell.swift */,
+			);
+			path = DiningHallHours;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -430,6 +447,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC035C43216A40B10026E672 /* MenuItemDetailVC.swift in Sources */,
+				FC03B950216E33750027920D /* DiningHallHoursVC.swift in Sources */,
+				FC03B952216E34120027920D /* DiningHallHoursDataSource.swift in Sources */,
 				FC035C0A216952CB0026E672 /* JZDatepickerCircleView.m in Sources */,
 				FC035C17216955FE0026E672 /* DiningHallCell.swift in Sources */,
 				FC035C2921696D620026E672 /* CommonDetailVC.swift in Sources */,
@@ -442,6 +461,7 @@
 				FC035C0F216953860026E672 /* SelectCommonsViewModel.swift in Sources */,
 				FC035C0C216952CB0026E672 /* StickyHeaderFlowLayout.m in Sources */,
 				FC035C0D216952CB0026E672 /* JZDatepickerDateView.m in Sources */,
+				FC03B954216E380E0027920D /* HourCell.swift in Sources */,
 				FC035C0B216952CB0026E672 /* JZDatepickerMonthView.m in Sources */,
 				FC035C2021695A900026E672 /* IDNavigationController.swift in Sources */,
 				FC035C3E2169BDB10026E672 /* CommonDetailViewModel.swift in Sources */,
