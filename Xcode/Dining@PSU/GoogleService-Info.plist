@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>38290618628-0kuskhhgf5f686n4pjmof1prit0fkr7p.apps.googleusercontent.com</string>
+	<string>38290618628-424qludicibpvdc9347voj3fpt2v8450.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.38290618628-0kuskhhgf5f686n4pjmof1prit0fkr7p</string>
+	<string>com.googleusercontent.apps.38290618628-424qludicibpvdc9347voj3fpt2v8450</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDuOFhhnU9Yhm1s3nOpNVYtQVvRxAlx7Ws</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.intellidining.Dining-PSU</string>
+	<string>com.intellidining.DiningAtPSU</string>
 	<key>PROJECT_ID</key>
 	<string>dining-psu</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:38290618628:ios:b26f4699a42f0baf</string>
+	<string>1:38290618628:ios:3dc8b2441b4db9bb</string>
 	<key>DATABASE_URL</key>
 	<string>https://dining-psu.firebaseio.com</string>
 </dict>
