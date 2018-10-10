@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4B3D635ED3546C717EB5C56F /* Pods_Dining_PSU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CDEA6A52B20A81D5F78C337 /* Pods_Dining_PSU.framework */; };
-		5F9BFDD585C22EABE30A7358 /* Pods_DiningPSUIntentExtensionUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4B875DFAC8BA59F39B49F5 /* Pods_DiningPSUIntentExtensionUI.framework */; };
-		F9F07B6B903EF9A0C5B1F394 /* Pods_DiningPSUIntentExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F230AA065E957BAEA5E343C /* Pods_DiningPSUIntentExtension.framework */; };
 		FC00D46921693BEF004722E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC00D46821693BEF004722E1 /* AppDelegate.swift */; };
 		FC00D46E21693BEF004722E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC00D46C21693BEF004722E1 /* Main.storyboard */; };
 		FC00D47021693BF0004722E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC00D46F21693BF0004722E1 /* Assets.xcassets */; };
@@ -41,53 +39,7 @@
 		FC035C3C2169B9860026E672 /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C3B2169B9860026E672 /* MenuItemCell.swift */; };
 		FC035C3E2169BDB10026E672 /* CommonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C3D2169BDB10026E672 /* CommonDetailViewModel.swift */; };
 		FC035C43216A40B10026E672 /* MenuItemDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C42216A40B10026E672 /* MenuItemDetailVC.swift */; };
-		FC035C46216A5AEB0026E672 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FC035C45216A5AEB0026E672 /* Intents.intentdefinition */; };
-		FC035C4E216A5E910026E672 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C4D216A5E910026E672 /* IntentHandler.swift */; };
-		FC035C56216A5E910026E672 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC035C55216A5E910026E672 /* IntentsUI.framework */; };
-		FC035C59216A5E910026E672 /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C58216A5E910026E672 /* IntentViewController.swift */; };
-		FC035C5C216A5E910026E672 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC035C5A216A5E910026E672 /* MainInterface.storyboard */; };
-		FC035C60216A5E910026E672 /* DiningPSUIntentExtensionUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FC035C54216A5E910026E672 /* DiningPSUIntentExtensionUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		FC035C63216A5E910026E672 /* DiningPSUIntentExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FC035C4B216A5E900026E672 /* DiningPSUIntentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		FC035C6B216A5EDA0026E672 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FC035C45216A5AEB0026E672 /* Intents.intentdefinition */; };
-		FC035C6C216A5EDB0026E672 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FC035C45216A5AEB0026E672 /* Intents.intentdefinition */; };
-		FC035C6E216A5F810026E672 /* ViewMenuIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C6D216A5F810026E672 /* ViewMenuIntentHandler.swift */; };
-		FC035C6F216A61CB0026E672 /* MealName.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C31216989860026E672 /* MealName.swift */; };
-		FC035C70216A61CE0026E672 /* MealName.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C31216989860026E672 /* MealName.swift */; };
-		FC035C71216A61D10026E672 /* DiningHall.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C14216954EC0026E672 /* DiningHall.swift */; };
-		FC035C72216A61D10026E672 /* DiningHall.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C14216954EC0026E672 /* DiningHall.swift */; };
-		FC035C73216A61D60026E672 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C2D216987D80026E672 /* Location.swift */; };
-		FC035C74216A61D60026E672 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C2D216987D80026E672 /* Location.swift */; };
-		FC035C75216A61D80026E672 /* LocationHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C2F2169888C0026E672 /* LocationHours.swift */; };
-		FC035C76216A61D90026E672 /* LocationHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C2F2169888C0026E672 /* LocationHours.swift */; };
-		FC035C77216A61DC0026E672 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C3321698A1C0026E672 /* MenuItem.swift */; };
-		FC035C78216A61DD0026E672 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C3321698A1C0026E672 /* MenuItem.swift */; };
-		FC035C79216A61E00026E672 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C3721698D450026E672 /* Result.swift */; };
-		FC035C7A216A61E10026E672 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C3721698D450026E672 /* Result.swift */; };
-		FC035C7B216A61F10026E672 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C3521698CF80026E672 /* DataService.swift */; };
-		FC035C7C216A61F20026E672 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C3521698CF80026E672 /* DataService.swift */; };
-		FC035C7D216A6D8E0026E672 /* CommonDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C392169AB280026E672 /* CommonDetailDataSource.swift */; };
-		FC035C7E216A6EC60026E672 /* ViewMenuIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C6D216A5F810026E672 /* ViewMenuIntentHandler.swift */; };
-		FC035C7F216A6F7D0026E672 /* CommonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C3D2169BDB10026E672 /* CommonDetailViewModel.swift */; };
-		FC035C80216A6FCD0026E672 /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C3B2169B9860026E672 /* MenuItemCell.swift */; };
-		FC035C81216A70D10026E672 /* HexColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C2121695D970026E672 /* HexColors.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		FC035C5E216A5E910026E672 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FC00D45D21693BEF004722E1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FC035C53216A5E910026E672;
-			remoteInfo = DiningPSUIntentExtensionUI;
-		};
-		FC035C61216A5E910026E672 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FC00D45D21693BEF004722E1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FC035C4A216A5E900026E672;
-			remoteInfo = DiningPSUIntentExtension;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		FC035C6A216A5E910026E672 /* Embed App Extensions */ = {
@@ -96,8 +48,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				FC035C63216A5E910026E672 /* DiningPSUIntentExtension.appex in Embed App Extensions */,
-				FC035C60216A5E910026E672 /* DiningPSUIntentExtensionUI.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,16 +104,7 @@
 		FC035C3D2169BDB10026E672 /* CommonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDetailViewModel.swift; sourceTree = "<group>"; };
 		FC035C42216A40B10026E672 /* MenuItemDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetailVC.swift; sourceTree = "<group>"; };
 		FC035C44216A58660026E672 /* Dining@PSU.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Dining@PSU.entitlements"; sourceTree = "<group>"; };
-		FC035C45216A5AEB0026E672 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Intents.intentdefinition; path = "Dining@PSU/Intents.intentdefinition"; sourceTree = "<group>"; };
-		FC035C4B216A5E900026E672 /* DiningPSUIntentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DiningPSUIntentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC035C4D216A5E910026E672 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
-		FC035C4F216A5E910026E672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FC035C54216A5E910026E672 /* DiningPSUIntentExtensionUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DiningPSUIntentExtensionUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC035C55216A5E910026E672 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
-		FC035C58216A5E910026E672 /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
-		FC035C5B216A5E910026E672 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		FC035C5D216A5E910026E672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FC035C6D216A5F810026E672 /* ViewMenuIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMenuIntentHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,23 +113,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B3D635ED3546C717EB5C56F /* Pods_Dining_PSU.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FC035C48216A5E900026E672 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F9F07B6B903EF9A0C5B1F394 /* Pods_DiningPSUIntentExtension.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FC035C51216A5E910026E672 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FC035C56216A5E910026E672 /* IntentsUI.framework in Frameworks */,
-				5F9BFDD585C22EABE30A7358 /* Pods_DiningPSUIntentExtensionUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,9 +148,6 @@
 			children = (
 				FC00D46721693BEF004722E1 /* Dining@PSU */,
 				FC035BFE216952CA0026E672 /* JZDatePicker */,
-				FC035C45216A5AEB0026E672 /* Intents.intentdefinition */,
-				FC035C4C216A5E910026E672 /* DiningPSUIntentExtension */,
-				FC035C57216A5E910026E672 /* DiningPSUIntentExtensionUI */,
 				FC00D46621693BEF004722E1 /* Products */,
 				1F3CC7FFA7D962E6C1F1E6D0 /* Pods */,
 				233BCA9CE7F9F7B81B6BB77C /* Frameworks */,
@@ -237,8 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				FC00D46521693BEF004722E1 /* Dining@PSU.app */,
-				FC035C4B216A5E900026E672 /* DiningPSUIntentExtension.appex */,
-				FC035C54216A5E910026E672 /* DiningPSUIntentExtensionUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -336,26 +255,6 @@
 			path = MenuItemDetail;
 			sourceTree = "<group>";
 		};
-		FC035C4C216A5E910026E672 /* DiningPSUIntentExtension */ = {
-			isa = PBXGroup;
-			children = (
-				FC035C4D216A5E910026E672 /* IntentHandler.swift */,
-				FC035C4F216A5E910026E672 /* Info.plist */,
-				FC035C6D216A5F810026E672 /* ViewMenuIntentHandler.swift */,
-			);
-			path = DiningPSUIntentExtension;
-			sourceTree = "<group>";
-		};
-		FC035C57216A5E910026E672 /* DiningPSUIntentExtensionUI */ = {
-			isa = PBXGroup;
-			children = (
-				FC035C58216A5E910026E672 /* IntentViewController.swift */,
-				FC035C5A216A5E910026E672 /* MainInterface.storyboard */,
-				FC035C5D216A5E910026E672 /* Info.plist */,
-			);
-			path = DiningPSUIntentExtensionUI;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -375,49 +274,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				FC035C5F216A5E910026E672 /* PBXTargetDependency */,
-				FC035C62216A5E910026E672 /* PBXTargetDependency */,
 			);
 			name = "Dining@PSU";
 			productName = "Dining@PSU";
 			productReference = FC00D46521693BEF004722E1 /* Dining@PSU.app */;
 			productType = "com.apple.product-type.application";
-		};
-		FC035C4A216A5E900026E672 /* DiningPSUIntentExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FC035C67216A5E910026E672 /* Build configuration list for PBXNativeTarget "DiningPSUIntentExtension" */;
-			buildPhases = (
-				E6836390A96499FAA859A624 /* [CP] Check Pods Manifest.lock */,
-				FC035C47216A5E900026E672 /* Sources */,
-				FC035C48216A5E900026E672 /* Frameworks */,
-				FC035C49216A5E900026E672 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = DiningPSUIntentExtension;
-			productName = DiningPSUIntentExtension;
-			productReference = FC035C4B216A5E900026E672 /* DiningPSUIntentExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		FC035C53216A5E910026E672 /* DiningPSUIntentExtensionUI */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FC035C64216A5E910026E672 /* Build configuration list for PBXNativeTarget "DiningPSUIntentExtensionUI" */;
-			buildPhases = (
-				DDBB073BB1881975F7B051B1 /* [CP] Check Pods Manifest.lock */,
-				FC035C50216A5E910026E672 /* Sources */,
-				FC035C51216A5E910026E672 /* Frameworks */,
-				FC035C52216A5E910026E672 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = DiningPSUIntentExtensionUI;
-			productName = DiningPSUIntentExtensionUI;
-			productReference = FC035C54216A5E910026E672 /* DiningPSUIntentExtensionUI.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -433,18 +294,12 @@
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Siri = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
-					};
-					FC035C4A216A5E900026E672 = {
-						CreatedOnToolsVersion = 10.1;
-					};
-					FC035C53216A5E910026E672 = {
-						CreatedOnToolsVersion = 10.1;
 					};
 				};
 			};
@@ -462,8 +317,6 @@
 			projectRoot = "";
 			targets = (
 				FC00D46421693BEF004722E1 /* Dining@PSU */,
-				FC035C4A216A5E900026E672 /* DiningPSUIntentExtension */,
-				FC035C53216A5E910026E672 /* DiningPSUIntentExtensionUI */,
 			);
 		};
 /* End PBXProject section */
@@ -480,46 +333,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FC035C49216A5E900026E672 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FC035C52216A5E910026E672 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FC035C5C216A5E910026E672 /* MainInterface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		DDBB073BB1881975F7B051B1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DiningPSUIntentExtensionUI-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E3A095115DB28E0F9150B4F2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -546,28 +362,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dining@PSU/Pods-Dining@PSU-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E6836390A96499FAA859A624 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DiningPSUIntentExtension-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E93B7A1E5614B06180A6F539 /* [CP] Check Pods Manifest.lock */ = {
@@ -649,7 +443,6 @@
 				FC035C0C216952CB0026E672 /* StickyHeaderFlowLayout.m in Sources */,
 				FC035C0D216952CB0026E672 /* JZDatepickerDateView.m in Sources */,
 				FC035C0B216952CB0026E672 /* JZDatepickerMonthView.m in Sources */,
-				FC035C46216A5AEB0026E672 /* Intents.intentdefinition in Sources */,
 				FC035C2021695A900026E672 /* IDNavigationController.swift in Sources */,
 				FC035C3E2169BDB10026E672 /* CommonDetailViewModel.swift in Sources */,
 				FC035C3821698D450026E672 /* Result.swift in Sources */,
@@ -666,58 +459,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FC035C47216A5E900026E672 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FC035C79216A61E00026E672 /* Result.swift in Sources */,
-				FC035C71216A61D10026E672 /* DiningHall.swift in Sources */,
-				FC035C6B216A5EDA0026E672 /* Intents.intentdefinition in Sources */,
-				FC035C6F216A61CB0026E672 /* MealName.swift in Sources */,
-				FC035C4E216A5E910026E672 /* IntentHandler.swift in Sources */,
-				FC035C73216A61D60026E672 /* Location.swift in Sources */,
-				FC035C77216A61DC0026E672 /* MenuItem.swift in Sources */,
-				FC035C6E216A5F810026E672 /* ViewMenuIntentHandler.swift in Sources */,
-				FC035C75216A61D80026E672 /* LocationHours.swift in Sources */,
-				FC035C7B216A61F10026E672 /* DataService.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FC035C50216A5E910026E672 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FC035C7C216A61F20026E672 /* DataService.swift in Sources */,
-				FC035C78216A61DD0026E672 /* MenuItem.swift in Sources */,
-				FC035C76216A61D90026E672 /* LocationHours.swift in Sources */,
-				FC035C6C216A5EDB0026E672 /* Intents.intentdefinition in Sources */,
-				FC035C7E216A6EC60026E672 /* ViewMenuIntentHandler.swift in Sources */,
-				FC035C72216A61D10026E672 /* DiningHall.swift in Sources */,
-				FC035C74216A61D60026E672 /* Location.swift in Sources */,
-				FC035C80216A6FCD0026E672 /* MenuItemCell.swift in Sources */,
-				FC035C7D216A6D8E0026E672 /* CommonDetailDataSource.swift in Sources */,
-				FC035C70216A61CE0026E672 /* MealName.swift in Sources */,
-				FC035C7A216A61E10026E672 /* Result.swift in Sources */,
-				FC035C81216A70D10026E672 /* HexColors.swift in Sources */,
-				FC035C7F216A6F7D0026E672 /* CommonDetailViewModel.swift in Sources */,
-				FC035C59216A5E910026E672 /* IntentViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FC035C5F216A5E910026E672 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FC035C53216A5E910026E672 /* DiningPSUIntentExtensionUI */;
-			targetProxy = FC035C5E216A5E910026E672 /* PBXContainerItemProxy */;
-		};
-		FC035C62216A5E910026E672 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FC035C4A216A5E900026E672 /* DiningPSUIntentExtension */;
-			targetProxy = FC035C61216A5E910026E672 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FC00D46C21693BEF004722E1 /* Main.storyboard */ = {
@@ -734,14 +476,6 @@
 				FC00D47221693BF0004722E1 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		FC035C5A216A5E910026E672 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FC035C5B216A5E910026E672 /* Base */,
-			);
-			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -869,7 +603,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Dining@PSU/Dining@PSU.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M23B6AYLDX;
@@ -894,7 +627,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Dining@PSU/Dining@PSU.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M23B6AYLDX;
@@ -910,90 +642,6 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Dining@PSU/Dining@PSU-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		FC035C65216A5E910026E672 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 92E751DA3C7803A348DF8033 /* Pods-DiningPSUIntentExtensionUI.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M23B6AYLDX;
-				INFOPLIST_FILE = DiningPSUIntentExtensionUI/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.intellidining.DiningAtPSU.DiningPSUIntentExtensionUI;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		FC035C66216A5E910026E672 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 218E4F10E07470E911C05DF4 /* Pods-DiningPSUIntentExtensionUI.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M23B6AYLDX;
-				INFOPLIST_FILE = DiningPSUIntentExtensionUI/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.intellidining.DiningAtPSU.DiningPSUIntentExtensionUI;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		FC035C68216A5E910026E672 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 12220B15A86D7B40D17E897A /* Pods-DiningPSUIntentExtension.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M23B6AYLDX;
-				INFOPLIST_FILE = DiningPSUIntentExtension/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.intellidining.DiningAtPSU.DiningPSUIntentExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		FC035C69216A5E910026E672 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BA075EBD507A9B4E35E1AF3 /* Pods-DiningPSUIntentExtension.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M23B6AYLDX;
-				INFOPLIST_FILE = DiningPSUIntentExtension/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.intellidining.DiningAtPSU.DiningPSUIntentExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1014,24 +662,6 @@
 			buildConfigurations = (
 				FC00D47821693BF0004722E1 /* Debug */,
 				FC00D47921693BF0004722E1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FC035C64216A5E910026E672 /* Build configuration list for PBXNativeTarget "DiningPSUIntentExtensionUI" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FC035C65216A5E910026E672 /* Debug */,
-				FC035C66216A5E910026E672 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FC035C67216A5E910026E672 /* Build configuration list for PBXNativeTarget "DiningPSUIntentExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FC035C68216A5E910026E672 /* Debug */,
-				FC035C69216A5E910026E672 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

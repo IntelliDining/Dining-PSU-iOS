@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Intents
-import IntentsUI
 
 class CommonDetailVC: UIViewController, CDViewModelDelegate, INUIAddVoiceShortcutViewControllerDelegate {
     
@@ -40,7 +38,7 @@ class CommonDetailVC: UIViewController, CDViewModelDelegate, INUIAddVoiceShortcu
                                                dataSource: self.dataSource)
     
     lazy var infoButton: UIBarButtonItem = {
-        let b = UIBarButtonItem(image: UIImage(named: "siri")!, style: .plain, target: self, action: #selector(openInfo))
+        let b = UIBarButtonItem(image: UIImage(named: "info")!, style: .plain, target: self, action: #selector(openInfo))
         return b
     }()
     
@@ -189,30 +187,7 @@ class CommonDetailVC: UIViewController, CDViewModelDelegate, INUIAddVoiceShortcu
     }
     
     @objc func openInfo() {
-        donateInteraction()
-    }
-    
-    func donateInteraction() {
-        let intent = ViewMenuIntent()
         
-        let meal = dataSource.selectedMeal.rawValue
-        let location = diningHall.siriName
-        intent.suggestedInvocationPhrase = "What's the \(meal) menu at \(location)?"
-        intent.meal = meal
-        intent.location = location
-        let shortcut = INShortcut(intent: intent)!
-        let viewController = INUIAddVoiceShortcutViewController(shortcut: shortcut)
-        viewController.modalPresentationStyle = .formSheet
-        viewController.delegate = self
-        present(viewController, animated: true, completion: nil)
-    }
-    
-    func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
-    }
-    
-    func addVoiceShortcutViewControllerDidCancel(_ controller: INUIAddVoiceShortcutViewController) {
-        controller.dismiss(animated: true, completion: nil)
     }
     
     func startLoadingAnimations() {
