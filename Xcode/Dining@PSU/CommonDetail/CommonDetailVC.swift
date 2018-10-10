@@ -7,10 +7,8 @@
 //
 
 import UIKit
-import Intents
-import IntentsUI
 
-class CommonDetailVC: UIViewController, CDViewModelDelegate, INUIAddVoiceShortcutViewControllerDelegate {
+class CommonDetailVC: UIViewController, CDViewModelDelegate {
     
     let appTintColor = UIColor(hexString: "093162")
     
@@ -26,6 +24,7 @@ class CommonDetailVC: UIViewController, CDViewModelDelegate, INUIAddVoiceShortcu
     var tableView: UITableView = {
         let t = UITableView(frame: .zero, style: .plain)
         t.backgroundColor = .white
+        t.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         return t
     }()
     
@@ -40,7 +39,7 @@ class CommonDetailVC: UIViewController, CDViewModelDelegate, INUIAddVoiceShortcu
                                                dataSource: self.dataSource)
     
     lazy var infoButton: UIBarButtonItem = {
-        let b = UIBarButtonItem(image: UIImage(named: "siri")!, style: .plain, target: self, action: #selector(openInfo))
+        let b = UIBarButtonItem(image: UIImage(named: "infoclock")!, style: .plain, target: self, action: #selector(openInfo))
         return b
     }()
     
@@ -189,30 +188,8 @@ class CommonDetailVC: UIViewController, CDViewModelDelegate, INUIAddVoiceShortcu
     }
     
     @objc func openInfo() {
-        donateInteraction()
-    }
-    
-    func donateInteraction() {
-        let intent = ViewMenuIntent()
-        
-        let meal = dataSource.selectedMeal.rawValue
-        let location = diningHall.siriName
-        intent.suggestedInvocationPhrase = "What's the \(meal) menu at \(location)?"
-        intent.meal = meal
-        intent.location = location
-        let shortcut = INShortcut(intent: intent)!
-        let viewController = INUIAddVoiceShortcutViewController(shortcut: shortcut)
-        viewController.modalPresentationStyle = .formSheet
-        viewController.delegate = self
-        present(viewController, animated: true, completion: nil)
-    }
-    
-    func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
-    }
-    
-    func addVoiceShortcutViewControllerDidCancel(_ controller: INUIAddVoiceShortcutViewController) {
-        controller.dismiss(animated: true, completion: nil)
+        let vc = DiningHallHoursVC(diningHall: self.diningHall)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func startLoadingAnimations() {
@@ -225,7 +202,9 @@ class CommonDetailVC: UIViewController, CDViewModelDelegate, INUIAddVoiceShortcu
     func stopLoadingAnimations() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         if refreshControl.isRefreshing {
-            refreshControl.endRefreshing()
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
         }
     }
     

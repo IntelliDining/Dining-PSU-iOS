@@ -84,9 +84,13 @@ class DataService {
         get("facilities/hours", nil) { (result: Result<[LocationHours]>) in
             switch (result) {
             case .success(let data):
-                let keys = data.map {datum in datum.menuCategoryNumber}.filter {str in str != nil}
+                let keys = data.compactMap{datum in datum.menuCategoryNumber}
+                let sKeys = Set(keys)
                 
-                let raw = Dictionary(uniqueKeysWithValues: keys.map {key in (key!, data.filter {datum in datum.menuCategoryNumber == key})})
+                let raw = Dictionary(uniqueKeysWithValues: sKeys.map { key in
+                        (key, data.filter {datum in datum.menuCategoryNumber == key})
+                    }
+                )
                 
                 completion(Result.success(value: raw))
                 break

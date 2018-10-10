@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class IDNavigationController: UINavigationController {
+class IDNavigationController: UINavigationController, GADBannerViewDelegate {
+    
+     var bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
     
     var gradientBackground = UIView()
     init() {
@@ -31,6 +34,26 @@ class IDNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupGradient()
+        setupAds()
+    }
+    
+    func setupAds() {
+        view.addSubview(bannerView)
+        bannerView.snp.makeConstraints { make in
+            if #available(iOS 11.0, *) {
+                make.bottom.equalTo(view.safeAreaInsets.bottom)
+            } else {
+                make.bottom.equalTo(view.snp.bottom)
+            }
+            make.centerX.equalTo(view)
+        }
+        
+        bannerView.adUnitID = "ca-app-pub-9355707484240783/9178090758"
+        bannerView.rootViewController = self
+        bannerView.delegate = self
+        bannerView.alpha = 0
+        bannerView.isHidden = true
+        bannerView.load(GADRequest())
     }
     
     func setupGradient() {
@@ -66,6 +89,14 @@ class IDNavigationController: UINavigationController {
     override func popViewController(animated: Bool) -> UIViewController? {
         navigationBar.sendSubviewToBack(gradientBackground)
         return super.popViewController(animated: animated)
+    }
+    
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        bannerView.alpha = 0
+        bannerView.isHidden = false
+        UIView.animate(withDuration: 1, animations: {
+            bannerView.alpha = 1
+        })
     }
 
 }

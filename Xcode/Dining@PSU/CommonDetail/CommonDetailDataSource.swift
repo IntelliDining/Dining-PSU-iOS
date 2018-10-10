@@ -18,8 +18,7 @@ class CommonDetailDataSource {
         }
     }
     var menu: Menu = [:]
-    var locations: [Location] = []
-    var filteredLocations: [Location] = []
+    var filteredLocations: [String] = []
     
     init(diningHallID: String) {
         self.diningHallID = diningHallID
@@ -27,6 +26,7 @@ class CommonDetailDataSource {
     
     func download(completion: @escaping (Result<Bool>) -> Void) {
         
+        /*
         var didError = false
         var errorMessage: String? = nil
         
@@ -43,19 +43,25 @@ class CommonDetailDataSource {
             }
             group.leave()
         }
+ 
         
         group.enter()
+        */
         DataService.getMenu(date: date, diningHallID: diningHallID) { result in
             switch result {
             case .success(let menu):
                 self.menu = menu
+                self.filteredLocations = self.filterLocations(mealName: self.selectedMeal)
+                completion(Result.success(value: true))
             case .failure(error: let error):
-                didError = true
-                errorMessage = error
+//                didError = true
+//                errorMessage = error
+                completion(Result.failure(error: error))
             }
-            group.leave()
+            //group.leave()
         }
         
+        /*
         group.notify(queue: .main) {
             if didError {
                 completion(Result.failure(error: errorMessage ?? "Unknown"))
@@ -64,18 +70,20 @@ class CommonDetailDataSource {
                 completion(Result.success(value: true))
             }
         }
+        */
+        
+        
     }
     
-    func filterLocations(mealName: MealName) -> [Location] {
-        if let menus = menu[mealName] {
-            let filtered =  locations.filter {
-                guard let items = menus[$0.menuCategoryName] else { return false }
-                return items.count > 0
+    func filterLocations(mealName: MealName) -> [String] {
+        var locs: [String] = []
+        if let locDict = menu[mealName] {
+            for (location, items) in locDict {
+                if items.count > 0 {
+                    locs.append(location)
+                }
             }
-            
-            return filtered.sorted{$0.menuCategoryName < $1.menuCategoryName}
         }
-        
-        return []
+        return locs
     }
 }

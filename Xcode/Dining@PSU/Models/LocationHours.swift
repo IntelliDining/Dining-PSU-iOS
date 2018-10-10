@@ -20,7 +20,12 @@ struct LocationHours {
     var timeClosed: String
     
     init(from json: [String: Any]) {
-        menuCategoryNumber = json["menuCategoryNumber"] as? String
+        if let s = json["menuCategoryNumber"] as? String {
+            menuCategoryNumber = s
+        }
+        if let s = json["menuCategoryNumber"] as? Int {
+            menuCategoryNumber = String(s)
+        }
         if let s = json["dayofweekStart"] as? String {
             dayOfWeekStart = Int(s)!
         } else {
@@ -35,7 +40,8 @@ struct LocationHours {
                 dayOfWeekEnd = n.intValue
             }
         }
-        timeOpen = json["timeOpenDisplay"] as! String
-        timeClosed = json["timeCloseDisplay"] as! String
+        let cs: [Character] = [" ", "."]
+        timeOpen = (json["timeOpenDisplay"] as! String).filter{!cs.contains($0)}
+        timeClosed = (json["timeCloseDisplay"] as! String).filter{!cs.contains($0)}
     }
 }
