@@ -1,0 +1,709 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		505FA99B3002287DBA2D998A /* Pods_IntelliDining.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4382800716A70F86DBEAFA02 /* Pods_IntelliDining.framework */; };
+		FC00D46921693BEF004722E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC00D46821693BEF004722E1 /* AppDelegate.swift */; };
+		FC00D46E21693BEF004722E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC00D46C21693BEF004722E1 /* Main.storyboard */; };
+		FC00D47021693BF0004722E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC00D46F21693BF0004722E1 /* Assets.xcassets */; };
+		FC00D47321693BF0004722E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC00D47121693BF0004722E1 /* LaunchScreen.storyboard */; };
+		FC00D47F21695180004722E1 /* SelectCommonsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC00D47E21695180004722E1 /* SelectCommonsVC.swift */; };
+		FC035C09216952CB0026E672 /* JZDatepicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FC035C00216952CA0026E672 /* JZDatepicker.m */; };
+		FC035C0A216952CB0026E672 /* JZDatepickerCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC035C01216952CA0026E672 /* JZDatepickerCircleView.m */; };
+		FC035C0B216952CB0026E672 /* JZDatepickerMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC035C02216952CA0026E672 /* JZDatepickerMonthView.m */; };
+		FC035C0C216952CB0026E672 /* StickyHeaderFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FC035C06216952CA0026E672 /* StickyHeaderFlowLayout.m */; };
+		FC035C0D216952CB0026E672 /* JZDatepickerDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC035C07216952CA0026E672 /* JZDatepickerDateView.m */; };
+		FC035C0F216953860026E672 /* SelectCommonsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C0E216953860026E672 /* SelectCommonsViewModel.swift */; };
+		FC035C12216954A60026E672 /* SelectCommonsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C11216954A60026E672 /* SelectCommonsDataSource.swift */; };
+		FC035C15216954EC0026E672 /* DiningHall.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C14216954EC0026E672 /* DiningHall.swift */; };
+		FC035C17216955FE0026E672 /* DiningHallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C16216955FE0026E672 /* DiningHallCell.swift */; };
+		FC035C1A216957900026E672 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C19216957900026E672 /* Shadow.swift */; };
+		FC035C1C216957940026E672 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C1B216957940026E672 /* Gradient.swift */; };
+		FC035C1E216958E20026E672 /* ShrinkingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C1D216958E20026E672 /* ShrinkingView.swift */; };
+		FC035C2021695A900026E672 /* IDNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C1F21695A900026E672 /* IDNavigationController.swift */; };
+		FC035C2221695D970026E672 /* HexColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C2121695D970026E672 /* HexColors.swift */; };
+		FC035C2921696D620026E672 /* CommonDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C2821696D620026E672 /* CommonDetailVC.swift */; };
+		FC035C2E216987D80026E672 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C2D216987D80026E672 /* Location.swift */; };
+		FC035C302169888C0026E672 /* LocationHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C2F2169888C0026E672 /* LocationHours.swift */; };
+		FC035C32216989860026E672 /* MealName.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C31216989860026E672 /* MealName.swift */; };
+		FC035C3421698A1C0026E672 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C3321698A1C0026E672 /* MenuItem.swift */; };
+		FC035C3621698CF80026E672 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C3521698CF80026E672 /* DataService.swift */; };
+		FC035C3821698D450026E672 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C3721698D450026E672 /* Result.swift */; };
+		FC035C3A2169AB280026E672 /* CommonDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C392169AB280026E672 /* CommonDetailDataSource.swift */; };
+		FC035C3C2169B9860026E672 /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C3B2169B9860026E672 /* MenuItemCell.swift */; };
+		FC035C3E2169BDB10026E672 /* CommonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C3D2169BDB10026E672 /* CommonDetailViewModel.swift */; };
+		FC035C43216A40B10026E672 /* MenuItemDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC035C42216A40B10026E672 /* MenuItemDetailVC.swift */; };
+		FC03B950216E33750027920D /* DiningHallHoursVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC03B94F216E33750027920D /* DiningHallHoursVC.swift */; };
+		FC03B952216E34120027920D /* DiningHallHoursDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC03B951216E34120027920D /* DiningHallHoursDataSource.swift */; };
+		FC03B954216E380E0027920D /* HourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC03B953216E380E0027920D /* HourCell.swift */; };
+		FC173559216E5EA20054373F /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC173558216E5EA20054373F /* AboutVC.swift */; };
+		FC400AB0216EA01200426C7C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC400AAF216EA01100426C7C /* GoogleService-Info.plist */; };
+		FC8DBB0A2170133B003D49ED /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8DBB092170133B003D49ED /* Colors.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FC035C6A216A5E910026E672 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0283839935BE0364F834DB5E /* Pods-IntelliDining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntelliDining.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IntelliDining/Pods-IntelliDining.debug.xcconfig"; sourceTree = "<group>"; };
+		0F230AA065E957BAEA5E343C /* Pods_DiningPSUIntentExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiningPSUIntentExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		12220B15A86D7B40D17E897A /* Pods-DiningPSUIntentExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiningPSUIntentExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiningPSUIntentExtension/Pods-DiningPSUIntentExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		218E4F10E07470E911C05DF4 /* Pods-DiningPSUIntentExtensionUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiningPSUIntentExtensionUI.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiningPSUIntentExtensionUI/Pods-DiningPSUIntentExtensionUI.release.xcconfig"; sourceTree = "<group>"; };
+		2B4B875DFAC8BA59F39B49F5 /* Pods_DiningPSUIntentExtensionUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiningPSUIntentExtensionUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4382800716A70F86DBEAFA02 /* Pods_IntelliDining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IntelliDining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CDEA6A52B20A81D5F78C337 /* Pods_Dining_PSU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dining_PSU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92E751DA3C7803A348DF8033 /* Pods-DiningPSUIntentExtensionUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiningPSUIntentExtensionUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiningPSUIntentExtensionUI/Pods-DiningPSUIntentExtensionUI.debug.xcconfig"; sourceTree = "<group>"; };
+		95F26C3BB4B74905BFD825F3 /* Pods-IntelliDining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntelliDining.release.xcconfig"; path = "Pods/Target Support Files/Pods-IntelliDining/Pods-IntelliDining.release.xcconfig"; sourceTree = "<group>"; };
+		98F0A26FCFA40CDC82086935 /* Pods-Dining@PSU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dining@PSU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dining@PSU/Pods-Dining@PSU.debug.xcconfig"; sourceTree = "<group>"; };
+		9BA075EBD507A9B4E35E1AF3 /* Pods-DiningPSUIntentExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiningPSUIntentExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiningPSUIntentExtension/Pods-DiningPSUIntentExtension.release.xcconfig"; sourceTree = "<group>"; };
+		A5EC687AC17F7C1FD54530DC /* Pods-Dining@PSU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dining@PSU.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dining@PSU/Pods-Dining@PSU.release.xcconfig"; sourceTree = "<group>"; };
+		FC00D46521693BEF004722E1 /* IntelliDining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntelliDining.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC00D46821693BEF004722E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FC00D46D21693BEF004722E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FC00D46F21693BF0004722E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FC00D47221693BF0004722E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FC00D47421693BF0004722E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC00D47E21695180004722E1 /* SelectCommonsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCommonsVC.swift; sourceTree = "<group>"; };
+		FC035BFF216952CA0026E672 /* StickyHeaderFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickyHeaderFlowLayout.h; sourceTree = "<group>"; };
+		FC035C00216952CA0026E672 /* JZDatepicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZDatepicker.m; sourceTree = "<group>"; };
+		FC035C01216952CA0026E672 /* JZDatepickerCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZDatepickerCircleView.m; sourceTree = "<group>"; };
+		FC035C02216952CA0026E672 /* JZDatepickerMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZDatepickerMonthView.m; sourceTree = "<group>"; };
+		FC035C03216952CA0026E672 /* JZDatepickerDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZDatepickerDateView.h; sourceTree = "<group>"; };
+		FC035C04216952CA0026E672 /* JZDatepickerCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZDatepickerCircleView.h; sourceTree = "<group>"; };
+		FC035C05216952CA0026E672 /* JZDatepicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZDatepicker.h; sourceTree = "<group>"; };
+		FC035C06216952CA0026E672 /* StickyHeaderFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyHeaderFlowLayout.m; sourceTree = "<group>"; };
+		FC035C07216952CA0026E672 /* JZDatepickerDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZDatepickerDateView.m; sourceTree = "<group>"; };
+		FC035C08216952CA0026E672 /* JZDatepickerMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZDatepickerMonthView.h; sourceTree = "<group>"; };
+		FC035C0E216953860026E672 /* SelectCommonsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCommonsViewModel.swift; sourceTree = "<group>"; };
+		FC035C11216954A60026E672 /* SelectCommonsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCommonsDataSource.swift; sourceTree = "<group>"; };
+		FC035C14216954EC0026E672 /* DiningHall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHall.swift; sourceTree = "<group>"; };
+		FC035C16216955FE0026E672 /* DiningHallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHallCell.swift; sourceTree = "<group>"; };
+		FC035C19216957900026E672 /* Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
+		FC035C1B216957940026E672 /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		FC035C1D216958E20026E672 /* ShrinkingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrinkingView.swift; sourceTree = "<group>"; };
+		FC035C1F21695A900026E672 /* IDNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDNavigationController.swift; sourceTree = "<group>"; };
+		FC035C2121695D970026E672 /* HexColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColors.swift; sourceTree = "<group>"; };
+		FC035C2821696D620026E672 /* CommonDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDetailVC.swift; sourceTree = "<group>"; };
+		FC035C2A216970660026E672 /* IntelliDining-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IntelliDining-Bridging-Header.h"; sourceTree = "<group>"; };
+		FC035C2D216987D80026E672 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		FC035C2F2169888C0026E672 /* LocationHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHours.swift; sourceTree = "<group>"; };
+		FC035C31216989860026E672 /* MealName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealName.swift; sourceTree = "<group>"; };
+		FC035C3321698A1C0026E672 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		FC035C3521698CF80026E672 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		FC035C3721698D450026E672 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		FC035C392169AB280026E672 /* CommonDetailDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDetailDataSource.swift; sourceTree = "<group>"; };
+		FC035C3B2169B9860026E672 /* MenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemCell.swift; sourceTree = "<group>"; };
+		FC035C3D2169BDB10026E672 /* CommonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDetailViewModel.swift; sourceTree = "<group>"; };
+		FC035C42216A40B10026E672 /* MenuItemDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetailVC.swift; sourceTree = "<group>"; };
+		FC035C44216A58660026E672 /* IntelliDining.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IntelliDining.entitlements; sourceTree = "<group>"; };
+		FC035C55216A5E910026E672 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		FC03B94F216E33750027920D /* DiningHallHoursVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHallHoursVC.swift; sourceTree = "<group>"; };
+		FC03B951216E34120027920D /* DiningHallHoursDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHallHoursDataSource.swift; sourceTree = "<group>"; };
+		FC03B953216E380E0027920D /* HourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourCell.swift; sourceTree = "<group>"; };
+		FC173558216E5EA20054373F /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
+		FC400AAF216EA01100426C7C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FC8DBB092170133B003D49ED /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FC00D46221693BEF004722E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				505FA99B3002287DBA2D998A /* Pods_IntelliDining.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F3CC7FFA7D962E6C1F1E6D0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				98F0A26FCFA40CDC82086935 /* Pods-Dining@PSU.debug.xcconfig */,
+				A5EC687AC17F7C1FD54530DC /* Pods-Dining@PSU.release.xcconfig */,
+				12220B15A86D7B40D17E897A /* Pods-DiningPSUIntentExtension.debug.xcconfig */,
+				9BA075EBD507A9B4E35E1AF3 /* Pods-DiningPSUIntentExtension.release.xcconfig */,
+				92E751DA3C7803A348DF8033 /* Pods-DiningPSUIntentExtensionUI.debug.xcconfig */,
+				218E4F10E07470E911C05DF4 /* Pods-DiningPSUIntentExtensionUI.release.xcconfig */,
+				0283839935BE0364F834DB5E /* Pods-IntelliDining.debug.xcconfig */,
+				95F26C3BB4B74905BFD825F3 /* Pods-IntelliDining.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		233BCA9CE7F9F7B81B6BB77C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8CDEA6A52B20A81D5F78C337 /* Pods_Dining_PSU.framework */,
+				FC035C55216A5E910026E672 /* IntentsUI.framework */,
+				0F230AA065E957BAEA5E343C /* Pods_DiningPSUIntentExtension.framework */,
+				2B4B875DFAC8BA59F39B49F5 /* Pods_DiningPSUIntentExtensionUI.framework */,
+				4382800716A70F86DBEAFA02 /* Pods_IntelliDining.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FC00D45C21693BEF004722E1 = {
+			isa = PBXGroup;
+			children = (
+				FC00D46721693BEF004722E1 /* IntelliDining */,
+				FC035BFE216952CA0026E672 /* JZDatePicker */,
+				FC00D46621693BEF004722E1 /* Products */,
+				1F3CC7FFA7D962E6C1F1E6D0 /* Pods */,
+				233BCA9CE7F9F7B81B6BB77C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FC00D46621693BEF004722E1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FC00D46521693BEF004722E1 /* IntelliDining.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FC00D46721693BEF004722E1 /* IntelliDining */ = {
+			isa = PBXGroup;
+			children = (
+				FC035C44216A58660026E672 /* IntelliDining.entitlements */,
+				FC00D46821693BEF004722E1 /* AppDelegate.swift */,
+				FC035C3521698CF80026E672 /* DataService.swift */,
+				FC035C1F21695A900026E672 /* IDNavigationController.swift */,
+				FC035C10216953920026E672 /* SelectCommons */,
+				FC035C2521696D290026E672 /* CommonDetail */,
+				FC03B94E216E33510027920D /* DiningHallHours */,
+				FC035C41216A407D0026E672 /* MenuItemDetail */,
+				FC173558216E5EA20054373F /* AboutVC.swift */,
+				FC035C13216954CE0026E672 /* Models */,
+				FC035C18216957870026E672 /* Appearance */,
+				FC00D46C21693BEF004722E1 /* Main.storyboard */,
+				FC00D46F21693BF0004722E1 /* Assets.xcassets */,
+				FC00D47121693BF0004722E1 /* LaunchScreen.storyboard */,
+				FC035C2A216970660026E672 /* IntelliDining-Bridging-Header.h */,
+				FC00D47421693BF0004722E1 /* Info.plist */,
+				FC400AAF216EA01100426C7C /* GoogleService-Info.plist */,
+			);
+			path = IntelliDining;
+			sourceTree = "<group>";
+		};
+		FC035BFE216952CA0026E672 /* JZDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				FC035BFF216952CA0026E672 /* StickyHeaderFlowLayout.h */,
+				FC035C00216952CA0026E672 /* JZDatepicker.m */,
+				FC035C01216952CA0026E672 /* JZDatepickerCircleView.m */,
+				FC035C02216952CA0026E672 /* JZDatepickerMonthView.m */,
+				FC035C03216952CA0026E672 /* JZDatepickerDateView.h */,
+				FC035C04216952CA0026E672 /* JZDatepickerCircleView.h */,
+				FC035C05216952CA0026E672 /* JZDatepicker.h */,
+				FC035C06216952CA0026E672 /* StickyHeaderFlowLayout.m */,
+				FC035C07216952CA0026E672 /* JZDatepickerDateView.m */,
+				FC035C08216952CA0026E672 /* JZDatepickerMonthView.h */,
+			);
+			path = JZDatePicker;
+			sourceTree = "<group>";
+		};
+		FC035C10216953920026E672 /* SelectCommons */ = {
+			isa = PBXGroup;
+			children = (
+				FC00D47E21695180004722E1 /* SelectCommonsVC.swift */,
+				FC035C0E216953860026E672 /* SelectCommonsViewModel.swift */,
+				FC035C11216954A60026E672 /* SelectCommonsDataSource.swift */,
+				FC035C16216955FE0026E672 /* DiningHallCell.swift */,
+			);
+			path = SelectCommons;
+			sourceTree = "<group>";
+		};
+		FC035C13216954CE0026E672 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FC035C14216954EC0026E672 /* DiningHall.swift */,
+				FC035C2D216987D80026E672 /* Location.swift */,
+				FC035C2F2169888C0026E672 /* LocationHours.swift */,
+				FC035C31216989860026E672 /* MealName.swift */,
+				FC035C3321698A1C0026E672 /* MenuItem.swift */,
+				FC035C3721698D450026E672 /* Result.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FC035C18216957870026E672 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				FC035C1D216958E20026E672 /* ShrinkingView.swift */,
+				FC035C19216957900026E672 /* Shadow.swift */,
+				FC035C1B216957940026E672 /* Gradient.swift */,
+				FC035C2121695D970026E672 /* HexColors.swift */,
+				FC8DBB092170133B003D49ED /* Colors.swift */,
+			);
+			path = Appearance;
+			sourceTree = "<group>";
+		};
+		FC035C2521696D290026E672 /* CommonDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FC035C2821696D620026E672 /* CommonDetailVC.swift */,
+				FC035C3D2169BDB10026E672 /* CommonDetailViewModel.swift */,
+				FC035C392169AB280026E672 /* CommonDetailDataSource.swift */,
+				FC035C3B2169B9860026E672 /* MenuItemCell.swift */,
+			);
+			path = CommonDetail;
+			sourceTree = "<group>";
+		};
+		FC035C41216A407D0026E672 /* MenuItemDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FC035C42216A40B10026E672 /* MenuItemDetailVC.swift */,
+			);
+			path = MenuItemDetail;
+			sourceTree = "<group>";
+		};
+		FC03B94E216E33510027920D /* DiningHallHours */ = {
+			isa = PBXGroup;
+			children = (
+				FC03B94F216E33750027920D /* DiningHallHoursVC.swift */,
+				FC03B951216E34120027920D /* DiningHallHoursDataSource.swift */,
+				FC03B953216E380E0027920D /* HourCell.swift */,
+			);
+			path = DiningHallHours;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FC00D46421693BEF004722E1 /* IntelliDining */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC00D47721693BF0004722E1 /* Build configuration list for PBXNativeTarget "IntelliDining" */;
+			buildPhases = (
+				E93B7A1E5614B06180A6F539 /* [CP] Check Pods Manifest.lock */,
+				FC00D47A21693D4B004722E1 /* Build number to number of commits */,
+				FC00D46121693BEF004722E1 /* Sources */,
+				FC00D46221693BEF004722E1 /* Frameworks */,
+				FC00D46321693BEF004722E1 /* Resources */,
+				FC00D47B21693D5F004722E1 /* Build number to development */,
+				E3A095115DB28E0F9150B4F2 /* [CP] Embed Pods Frameworks */,
+				FC035C6A216A5E910026E672 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IntelliDining;
+			productName = "Dining@PSU";
+			productReference = FC00D46521693BEF004722E1 /* IntelliDining.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FC00D45D21693BEF004722E1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = IntelliDining;
+				TargetAttributes = {
+					FC00D46421693BEF004722E1 = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.AccessWiFi = {
+								enabled = 0;
+							};
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+							com.apple.Siri = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = FC00D46021693BEF004722E1 /* Build configuration list for PBXProject "IntelliDining" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FC00D45C21693BEF004722E1;
+			productRefGroup = FC00D46621693BEF004722E1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FC00D46421693BEF004722E1 /* IntelliDining */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FC00D46321693BEF004722E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC00D47321693BF0004722E1 /* LaunchScreen.storyboard in Resources */,
+				FC400AB0216EA01200426C7C /* GoogleService-Info.plist in Resources */,
+				FC00D47021693BF0004722E1 /* Assets.xcassets in Resources */,
+				FC00D46E21693BEF004722E1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E3A095115DB28E0F9150B4F2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-IntelliDining/Pods-IntelliDining-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IntelliDining/Pods-IntelliDining-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E93B7A1E5614B06180A6F539 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IntelliDining-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC00D47A21693D4B004722E1 /* Build number to number of commits */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build number to number of commits";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${INFOPLIST_FILE}\"\n";
+		};
+		FC00D47B21693D5F004722E1 /* Build number to development */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build number to development";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion DEVELOPMENT\" \"${INFOPLIST_FILE}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FC00D46121693BEF004722E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC035C43216A40B10026E672 /* MenuItemDetailVC.swift in Sources */,
+				FC03B950216E33750027920D /* DiningHallHoursVC.swift in Sources */,
+				FC03B952216E34120027920D /* DiningHallHoursDataSource.swift in Sources */,
+				FC035C0A216952CB0026E672 /* JZDatepickerCircleView.m in Sources */,
+				FC035C17216955FE0026E672 /* DiningHallCell.swift in Sources */,
+				FC035C2921696D620026E672 /* CommonDetailVC.swift in Sources */,
+				FC035C12216954A60026E672 /* SelectCommonsDataSource.swift in Sources */,
+				FC173559216E5EA20054373F /* AboutVC.swift in Sources */,
+				FC035C32216989860026E672 /* MealName.swift in Sources */,
+				FC035C3621698CF80026E672 /* DataService.swift in Sources */,
+				FC035C3A2169AB280026E672 /* CommonDetailDataSource.swift in Sources */,
+				FC035C2221695D970026E672 /* HexColors.swift in Sources */,
+				FC035C1C216957940026E672 /* Gradient.swift in Sources */,
+				FC035C0F216953860026E672 /* SelectCommonsViewModel.swift in Sources */,
+				FC035C0C216952CB0026E672 /* StickyHeaderFlowLayout.m in Sources */,
+				FC035C0D216952CB0026E672 /* JZDatepickerDateView.m in Sources */,
+				FC03B954216E380E0027920D /* HourCell.swift in Sources */,
+				FC035C0B216952CB0026E672 /* JZDatepickerMonthView.m in Sources */,
+				FC035C2021695A900026E672 /* IDNavigationController.swift in Sources */,
+				FC035C3E2169BDB10026E672 /* CommonDetailViewModel.swift in Sources */,
+				FC035C3821698D450026E672 /* Result.swift in Sources */,
+				FC035C1E216958E20026E672 /* ShrinkingView.swift in Sources */,
+				FC035C1A216957900026E672 /* Shadow.swift in Sources */,
+				FC035C2E216987D80026E672 /* Location.swift in Sources */,
+				FC035C09216952CB0026E672 /* JZDatepicker.m in Sources */,
+				FC8DBB0A2170133B003D49ED /* Colors.swift in Sources */,
+				FC035C302169888C0026E672 /* LocationHours.swift in Sources */,
+				FC00D47F21695180004722E1 /* SelectCommonsVC.swift in Sources */,
+				FC035C3421698A1C0026E672 /* MenuItem.swift in Sources */,
+				FC035C15216954EC0026E672 /* DiningHall.swift in Sources */,
+				FC035C3C2169B9860026E672 /* MenuItemCell.swift in Sources */,
+				FC00D46921693BEF004722E1 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FC00D46C21693BEF004722E1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC00D46D21693BEF004722E1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FC00D47121693BF0004722E1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC00D47221693BF0004722E1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FC00D47521693BF0004722E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FC00D47621693BF0004722E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FC00D47821693BF0004722E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0283839935BE0364F834DB5E /* Pods-IntelliDining.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M23B6AYLDX;
+				INFOPLIST_FILE = "$(SRCROOT)/IntelliDining/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.intellidining.DiningAtPSU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "IntelliDining/IntelliDining-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		FC00D47921693BF0004722E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95F26C3BB4B74905BFD825F3 /* Pods-IntelliDining.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M23B6AYLDX;
+				INFOPLIST_FILE = "$(SRCROOT)/IntelliDining/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.intellidining.DiningAtPSU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "IntelliDining/IntelliDining-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FC00D46021693BEF004722E1 /* Build configuration list for PBXProject "IntelliDining" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC00D47521693BF0004722E1 /* Debug */,
+				FC00D47621693BF0004722E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC00D47721693BF0004722E1 /* Build configuration list for PBXNativeTarget "IntelliDining" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC00D47821693BF0004722E1 /* Debug */,
+				FC00D47921693BF0004722E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FC00D45D21693BEF004722E1 /* Project object */;
+}
