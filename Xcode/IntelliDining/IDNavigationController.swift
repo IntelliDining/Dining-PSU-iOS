@@ -48,12 +48,12 @@ class IDNavigationController: UINavigationController, GADBannerViewDelegate {
             make.centerX.equalTo(view)
         }
         
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" //ca-app-pub-9355707484240783/9178090758
+        bannerView.adUnitID = "ca-app-pub-9355707484240783/9178090758"
         bannerView.rootViewController = self
         bannerView.delegate = self
         bannerView.alpha = 0
         bannerView.isHidden = true
-        //bannerView.load(GADRequest())
+        bannerView.load(GADRequest())
     }
     
     func setupGradient() {
