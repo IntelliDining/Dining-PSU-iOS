@@ -53,7 +53,7 @@ class IDNavigationController: UINavigationController, GADBannerViewDelegate {
         bannerView.delegate = self
         bannerView.alpha = 0
         bannerView.isHidden = true
-        //bannerView.load(GADRequest())
+        bannerView.load(GADRequest())
     }
     
     func setupGradient() {
