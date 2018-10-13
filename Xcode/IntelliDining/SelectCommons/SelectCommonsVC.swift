@@ -8,7 +8,6 @@
 
 import UIKit
 import SnapKit
-import GoogleMobileAds
 
 class SelectCommonsVC: UIViewController, SelectCommonsViewModelDelegate {
     
@@ -40,8 +39,6 @@ class SelectCommonsVC: UIViewController, SelectCommonsViewModelDelegate {
     lazy var viewModel = SelectCommonsViewModel(collectionView: self.collectionView,
                                                 viewController: self,
                                                 data: self.dataSource)
-    
-    var bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -115,15 +112,5 @@ class SelectCommonsVC: UIViewController, SelectCommonsViewModelDelegate {
                 self.refreshControl.endRefreshing()
             }
         }
-    }
-}
-
-extension SelectCommonsVC: GADBannerViewDelegate {
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        bannerView.alpha = 0
-        bannerView.isHidden = false
-        UIView.animate(withDuration: 1, animations: {
-            bannerView.alpha = 1
-        })
     }
 }

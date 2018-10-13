@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         // Start Firebase Analytics
         FirebaseApp.configure()
-        GADMobileAds.configure(withApplicationID: "ca-app-pub-9355707484240783~6907150638")
         
         launchMain()
         return true

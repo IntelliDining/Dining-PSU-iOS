@@ -242,11 +242,11 @@ Copyright 2018 Google
 
 Copyright 2018 Google
 
-## Google-Mobile-Ads-SDK
+## GoogleAppMeasurement
 
 Copyright 2018 Google
 
-## GoogleToolboxForMac
+## GoogleUtilities
 
 
                                  Apache License
