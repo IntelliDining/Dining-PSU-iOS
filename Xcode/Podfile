@@ -8,6 +8,5 @@ target 'IntelliDining' do
   # Pods for Dining@PSU
   pod 'SnapKit', '~> 4.0.0' 
   pod 'Firebase/Core'
-  pod 'Firebase/AdMob'
   pod 'Alamofire'
 end

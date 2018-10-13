@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import GoogleMobileAds
+//import GoogleMobileAds
 
-class IDNavigationController: UINavigationController, GADBannerViewDelegate {
+class IDNavigationController: UINavigationController {
     
-     var bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+    //var bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
     
     var gradientBackground = UIView()
     init() {
@@ -34,9 +34,10 @@ class IDNavigationController: UINavigationController, GADBannerViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupGradient()
-        setupAds()
+        //setupAds()
     }
     
+    /*
     func setupAds() {
         view.addSubview(bannerView)
         bannerView.snp.makeConstraints { make in
@@ -55,6 +56,7 @@ class IDNavigationController: UINavigationController, GADBannerViewDelegate {
         bannerView.isHidden = true
         bannerView.load(GADRequest())
     }
+    */
     
     func setupGradient() {
         let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
@@ -91,6 +93,7 @@ class IDNavigationController: UINavigationController, GADBannerViewDelegate {
         return super.popViewController(animated: animated)
     }
     
+    /*
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
         bannerView.alpha = 0
         bannerView.isHidden = false
@@ -98,5 +101,6 @@ class IDNavigationController: UINavigationController, GADBannerViewDelegate {
             bannerView.alpha = 1
         })
     }
+    */
 
 }
