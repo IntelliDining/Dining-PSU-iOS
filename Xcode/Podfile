@@ -9,4 +9,6 @@ target 'IntelliDining' do
   pod 'SnapKit', '~> 4.0.0' 
   pod 'Firebase/Core'
   pod 'Alamofire'
+  pod 'Fabric', '~> 1.9.0'
+  pod 'Crashlytics', '~> 3.12.0'
 end

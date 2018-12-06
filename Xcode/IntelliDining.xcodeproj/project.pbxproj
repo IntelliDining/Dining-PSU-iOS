@@ -299,6 +299,7 @@
 				FC00D47B21693D5F004722E1 /* Build number to development */,
 				E3A095115DB28E0F9150B4F2 /* [CP] Embed Pods Frameworks */,
 				FC035C6A216A5E910026E672 /* Embed App Extensions */,
+				FC6C7C4D21B9D6CA00EA7C9F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -453,6 +454,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion DEVELOPMENT\" \"${INFOPLIST_FILE}\"\n";
+		};
+		FC6C7C4D21B9D6CA00EA7C9F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -642,6 +661,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = M23B6AYLDX;
 				INFOPLIST_FILE = "$(SRCROOT)/IntelliDining/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
