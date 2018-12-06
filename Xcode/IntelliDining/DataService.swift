@@ -22,48 +22,59 @@ class DataService {
         else {
             query = "";
         }
-        
-        Alamofire.request(DataService.base + endpoint + "/v1/221723" + query).responseJSON {response in
+
+        let params: [String: Any] = [
+            "apikey": 1
+        ]
+
+        Alamofire.request(DataService.base + endpoint + "/v1/221723" + query, method: .get, parameters: params, encoding: URLEncoding.default, headers: nil).validate().responseJSON { response in
             switch (response.result) {
-                case .success(let json):
-                    let dict = json as! [String: [Any]]
-                    
-                    var zipps: [Zip2Sequence<[String], [Any]>] = []
-                    for datum in dict["DATA"]! {
-                        let arr = datum as! [Any]
-                        let zipped = zip(dict["COLUMNS"] as! [String], arr)
-                        zipps.append(zipped)
+            case .success(let json):
+                let dict = json as! [String: [Any]]
+
+                var zipps: [Zip2Sequence<[String], [Any]>] = []
+                for datum in dict["DATA"]! {
+                    let arr = datum as! [Any]
+                    let zipped = zip(dict["COLUMNS"] as! [String], arr)
+                    zipps.append(zipped)
+                }
+
+                var objArray: [[String: Any]] = []
+                for zipped in zipps {
+                    let dict = Dictionary(uniqueKeysWithValues: zipped)
+                    let r = rename(dict)
+                    objArray.append(r)
+                }
+
+                switch (T.self) {
+                case is DiningHall.Type:
+                    var halls = objArray.map{DiningHall(from: $0)}
+                    halls = halls.filter{$0.campusCode == "UP"} // Filter Only University Park Commons
+                    completion(Result.success(value: halls as! [T]))
+                case is Location.Type:
+                    let locations = objArray.map{Location(from: $0)}
+                    completion(Result.success(value: locations as! [T]))
+                case is LocationHours.Type:
+                    let hours = objArray.map{LocationHours(from: $0)}
+                    completion(Result.success(value: hours as! [T]))
+                case is MenuItem.Type:
+                    let items = objArray.map{MenuItem(from: $0)}
+                    completion(Result.success(value: items as! [T]))
+                default:
+                    completion(Result.failure(error: "Unknown type \(T.self)"))
+                }
+
+                break
+            case .failure(let error):
+                if let aError = error as? AFError, aError.isResponseValidationError {
+                    if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
+                        completion(Result.failure(error: errorMessage))
+                        return
                     }
-                    
-                    var objArray: [[String: Any]] = []
-                    for zipped in zipps {
-                        let dict = Dictionary(uniqueKeysWithValues: zipped)
-                        let r = rename(dict)
-                        objArray.append(r)
-                    }
-                    
-                    switch (T.self) {
-                    case is DiningHall.Type:
-                        var halls = objArray.map{DiningHall(from: $0)}
-                        halls = halls.filter{$0.campusCode == "UP"} // Filter Only University Park Commons
-                        completion(Result.success(value: halls as! [T]))
-                    case is Location.Type:
-                        let locations = objArray.map{Location(from: $0)}
-                        completion(Result.success(value: locations as! [T]))
-                    case is LocationHours.Type:
-                        let hours = objArray.map{LocationHours(from: $0)}
-                        completion(Result.success(value: hours as! [T]))
-                    case is MenuItem.Type:
-                        let items = objArray.map{MenuItem(from: $0)}
-                        completion(Result.success(value: items as! [T]))
-                    default:
-                        completion(Result.failure(error: "Unknown type \(T.self)"))
-                    }
-                    
-                    break
-                case .failure(let error):
-                    completion(Result.failure(error: error.localizedDescription))
-                    break
+                }
+
+                completion(Result.failure(error: error.localizedDescription))
+                break
             }
         }
     }
