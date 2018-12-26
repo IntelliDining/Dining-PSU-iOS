@@ -187,7 +187,16 @@ class CommonDetailVC: UIViewController, CDViewModelDelegate {
     
     @objc func openInfo() {
         let vc = DiningHallHoursVC(diningHall: self.diningHall)
-        navigationController?.pushViewController(vc, animated: true)
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            vc.modalPresentationStyle = .popover
+            vc.popoverPresentationController?.barButtonItem = self.infoButton
+            self.present(vc, animated: true)
+        }
+            
+        else {
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func startLoadingAnimations() {
