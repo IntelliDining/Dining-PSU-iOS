@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.23.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.16.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -82,11 +82,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HackPSU 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQb-WF-Pkk">
-                                <rect key="frame" x="117.5" y="621" width="140" height="26"/>
+                                <rect key="frame" x="117.5" y="592" width="140" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" red="0.95686274509803915" green="0.30196078431372547" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Contact: dhruvy427@gmail.com" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Bou-e1-34s">
+                                <rect key="frame" x="79" y="626" width="217.5" height="33"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -102,9 +109,11 @@
                             <constraint firstItem="qQb-WF-Pkk" firstAttribute="centerX" secondItem="OQW-EP-4e0" secondAttribute="centerX" id="M2w-tc-4hQ"/>
                             <constraint firstItem="JRm-AA-p34" firstAttribute="top" secondItem="yXn-fZ-1dc" secondAttribute="bottom" constant="24" id="MEE-gQ-IoM"/>
                             <constraint firstItem="G2g-pY-Cqg" firstAttribute="top" secondItem="6to-cU-6cp" secondAttribute="bottom" constant="8" id="ZMG-Me-8PL"/>
+                            <constraint firstItem="Bou-e1-34s" firstAttribute="centerX" secondItem="OQW-EP-4e0" secondAttribute="centerX" id="c7i-EA-Oft"/>
                             <constraint firstItem="UZG-rN-kZF" firstAttribute="centerX" secondItem="OQW-EP-4e0" secondAttribute="centerX" id="dGr-pH-PaY"/>
+                            <constraint firstItem="Bou-e1-34s" firstAttribute="top" secondItem="qQb-WF-Pkk" secondAttribute="bottom" constant="8" id="fBW-0M-vtH"/>
                             <constraint firstItem="G2g-pY-Cqg" firstAttribute="centerX" secondItem="OQW-EP-4e0" secondAttribute="centerX" id="jJ0-33-IuD"/>
-                            <constraint firstItem="z7s-mC-GD9" firstAttribute="bottom" secondItem="qQb-WF-Pkk" secondAttribute="bottom" constant="20" id="mbH-Ua-tAW"/>
+                            <constraint firstItem="z7s-mC-GD9" firstAttribute="bottom" secondItem="Bou-e1-34s" secondAttribute="bottom" constant="8" id="mHD-am-uVh"/>
                             <constraint firstItem="Wj4-yE-r2h" firstAttribute="top" secondItem="G2g-pY-Cqg" secondAttribute="bottom" constant="8" id="qJ3-cN-hNh"/>
                             <constraint firstItem="UZG-rN-kZF" firstAttribute="top" secondItem="f4B-Sg-guK" secondAttribute="bottom" constant="24" id="xC8-i1-HxP"/>
                             <constraint firstItem="yXn-fZ-1dc" firstAttribute="top" secondItem="UZG-rN-kZF" secondAttribute="bottom" constant="8" id="ybh-rt-PP0"/>
