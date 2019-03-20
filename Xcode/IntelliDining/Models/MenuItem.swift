@@ -13,7 +13,7 @@ typealias Menu = [MealName: [String: [MenuItem]]]
 
 struct MenuItem {
     var id: Int
-    var serveDate: String
+    var serveDate: String?
     var mealNumber: Int
     var mealName: MealName
     var locationNumber: Int
@@ -21,20 +21,17 @@ struct MenuItem {
     var menuCategoryNumber: Int
     var menuCategoryName: String
     var recipeNumber: Int
-    var recipeName: String
-    var recipePrintAsName: String
-    var ingredientList: String
-    var allergens: String
-    var recipePrintAsColor: String
-    var recipePrintAsCharacter: String
-    var recipeProductInformation: String
-    var sellingPrice: String
-    var portionCost: String
-    var productionDepartment: String
-    var serviceDepartment: String
-    var cateringDepartment: String
-    var recipeWebCodes: String
-    var serviceSize: String
+    var recipeName: String?
+    var recipePrintAsName: String?
+    var ingredientList: String?
+    var allergens: String?
+    var recipePrintAsColor: String?
+    var recipePrintAsCharacter: String?
+    var recipeProductInformation: String?
+    var sellingPrice: String?
+    var portionCost: String?
+    var recipeWebCodes: String?
+    var serviceSize: String?
     var calories: String
     var caloriesFromFat: String
     var totalFat: String
@@ -56,49 +53,92 @@ struct MenuItem {
     var protein: String
     var proteinDv: String
     
-    init(from json: [String: Any]) {
-        id = json["id"] as? Int ?? Int(json["id"] as! String)!
-        serveDate = json["serveDate"] as! String
-        mealNumber = json["mealNumber"] as? Int ?? Int(json["mealNumber"] as! String)!
-        mealName = MealName(rawValue: json["mealName"] as! String) ?? .breakfast
-        locationNumber = json["locationNumber"] as? Int ?? Int(json["locationNumber"] as! String)!
-        locationName = json["locationName"] as! String
-        menuCategoryNumber = json["menuCategoryNumber"] as? Int ?? Int(json["menuCategoryNumber"] as! String)!
-        menuCategoryName = json["menuCategoryName"] as! String
-        recipeNumber = json["recipeNumber"] as? Int ?? Int(json["recipeNumber"] as! String)!
-        recipeName = json["recipeName"] as! String
-        recipePrintAsName = json["recipePrintAsName"] as! String
-        ingredientList = json["ingredientList"] as! String
-        allergens = json["allergens"] as! String
-        recipePrintAsColor = json["recipePrintAsColor"] as? String ?? ""
-        recipePrintAsCharacter = json["recipePrintAsCharacter"] as! String
-        recipeProductInformation = json["recipeProductInformation"] as! String
-        sellingPrice = json["sellingPrice"] as? String ?? ""
-        portionCost = json["portionCost"] as? String ?? ""
-        productionDepartment = json["mealNumber"] as? String ?? String(json["mealNumber"] as! Int)
-        serviceDepartment = json["serviceDepartment"] as? String ?? String(json["serviceDepartment"] as! Int)
-        cateringDepartment = json["serviceDepartment"] as? String ?? String(json["serviceDepartment"] as! Int)
-        recipeWebCodes = json["recipeWebCodes"] as! String
-        serviceSize = json["serviceSize"] as? String ?? ""
-        calories = json["calories"] as? String ?? String(json["calories"] as! Int)
-        caloriesFromFat = json["caloriesFromFat"] as? String ?? String(json["caloriesFromFat"] as! Int)
-        totalFat = json["totalFat"] as? String ?? String(json["totalFat"] as! Int)
-        totalFatDv = json["totalFatDv"] as? String ?? String(json["totalFatDv"] as! Int)
-        satFat = json["satFat"] as? String ?? String(json["satFat"] as! Int)
-        satFatDv = json["satFatDv"] as? String ?? String(json["satFatDv"] as! Int)
-        transFat = json["transFat"] as? String ?? String(json["transFat"] as! Int)
-        transFatDv = json["transFatDv"] as? String ?? String(json["transFatDv"] as! Int)
-        cholesterol = json["cholesterol"] as? String ?? String(json["cholesterol"] as! Int)
-        cholesterolDv = json["cholesterolDv"] as? String ?? String(json["cholesterolDv"] as! Int)
-        sodium = json["sodium"] as? String ?? String(json["sodium"] as! Int)
-        sodiumDv = json["sodiumDv"] as? String ?? String(json["sodiumDv"] as! Int)
-        totalCarb = json["totalCarb"] as? String ?? String(json["totalCarb"] as! Int)
-        totalCarbDv = json["totalCarbDv"] as? String ?? String(json["totalCarbDv"] as! Int)
-        dietaryFiber = json["dietaryFiber"] as? String ?? String(json["dietaryFiber"] as! Int)
-        dietaryFiberDv = json["dietaryFiberDv"] as? String ?? String(json["dietaryFiberDv"] as! Int)
-        sugars = json["sugars"] as? String ?? String(json["sugars"] as! Int)
-        sugarsDv = json["sugarsDv"] as? String ?? String(json["sugarsDv"] as! Int)
-        protein = json["protein"] as? String ?? String(json["protein"] as! Int)
-        proteinDv = json["proteinDv"] as? String ?? String(json["proteinDv"] as! Int)
+    init(from json: [String: Any]) throws {
+        id = try shouldBeInt(json["id"])
+        serveDate = canBeString(json["serveDate"])
+        mealNumber =  try shouldBeInt(json["mealNumber"])
+        mealName = MealName(rawValue: try shouldBeString(json["mealName"])) ?? .breakfast
+        locationNumber = try shouldBeInt(json["locationNumber"])
+        locationName = try shouldBeString(json["locationName"])
+
+        menuCategoryNumber = canBeInt(json["menuCategoryNumber"]) ?? 0
+        menuCategoryName = try shouldBeString(json["menuCategoryName"])
+        recipeNumber = try shouldBeInt(json["recipeNumber"])
+        recipeName = canBeString(json["recipeName"])
+        recipePrintAsName = canBeString(json["recipePrintAsName"])
+        ingredientList = canBeString(json["ingredientList"])
+        allergens = canBeString(json["allergens"])
+        recipePrintAsColor = canBeString(json["recipePrintAsColor"])
+        recipePrintAsCharacter = canBeString(json["recipePrintAsColor"])
+        recipeProductInformation = canBeString(json["recipeProductInformation"])
+        sellingPrice = canBeString(json["sellingPrice"])
+        portionCost = canBeString(json["portionCost"])
+        recipeWebCodes = canBeString(json["recipeWebCodes"])
+        serviceSize = canBeString(json["serviceSize"])
+        calories = try shouldBeString(json["calories"])
+        caloriesFromFat = try shouldBeString(json["caloriesFromFat"])
+        totalFat = try shouldBeString(json["totalFat"])
+        totalFatDv = try shouldBeString(json["totalFatDv"])
+        satFat = try shouldBeString(json["satFat"])
+        satFatDv = try shouldBeString(json["satFatDv"])
+        transFat = try shouldBeString(json["transFat"])
+        transFatDv = try shouldBeString(json["transFatDv"])
+        cholesterol = try shouldBeString(json["cholesterol"])
+        cholesterolDv = try shouldBeString(json["cholesterolDv"])
+        sodium = try shouldBeString(json["sodium"])
+        sodiumDv = try shouldBeString(json["sodiumDv"])
+        totalCarb = try shouldBeString(json["totalCarb"])
+        totalCarbDv = try shouldBeString(json["totalCarbDv"])
+        dietaryFiber = try shouldBeString(json["dietaryFiber"])
+        dietaryFiberDv = try shouldBeString(json["dietaryFiberDv"])
+        sugars = try shouldBeString(json["sugars"])
+        sugarsDv = try shouldBeString(json["sugarsDv"])
+        protein = try shouldBeString(json["protein"])
+        proteinDv = try shouldBeString(json["proteinDv"])
     }
+}
+
+enum MenuParseError: Error {
+    case jsonParseError
+    case fieldNull
+}
+
+func shouldBeInt(_ value: Any?) throws -> Int {
+    guard let value = value else {
+        throw MenuParseError.fieldNull
+    }
+
+    if let i = value as? Int {
+        return i
+    }
+
+    if let s = value as? String, let i = Int(s) {
+        return i
+    }
+
+    throw MenuParseError.jsonParseError
+}
+
+func shouldBeString(_ value: Any?) throws -> String {
+    guard let value = value else {
+        throw MenuParseError.fieldNull
+    }
+
+    if let s = value as? String {
+        return s
+    }
+
+    if let i = value as? Int {
+        return String(i)
+    }
+
+    throw MenuParseError.jsonParseError
+}
+
+func canBeInt(_ value: Any?) -> Int? {
+    return try? shouldBeInt(value)
+}
+
+func canBeString(_ value: Any?) -> String? {
+    return try? shouldBeString(value)
 }

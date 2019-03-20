@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import Crashlytics
 
 class DataService {
     static let base = "https://api.absecom.psu.edu/rest/"
@@ -49,7 +50,7 @@ class DataService {
                 switch (T.self) {
                 case is DiningHall.Type:
                     var halls = objArray.map{DiningHall(from: $0)}
-                    halls = halls.filter{$0.campusCode == "UP"} // Filter Only University Park Commons
+                    halls = halls.filter {$0.campusCode == "UP"} // Filter Only University Park Commons
                     completion(Result.success(value: halls as! [T]))
                 case is Location.Type:
                     let locations = objArray.map{Location(from: $0)}
@@ -58,7 +59,24 @@ class DataService {
                     let hours = objArray.map{LocationHours(from: $0)}
                     completion(Result.success(value: hours as! [T]))
                 case is MenuItem.Type:
-                    let items = objArray.map{MenuItem(from: $0)}
+                    var items: [MenuItem] = []
+                    for obj in objArray {
+                        do {
+                            let m = try MenuItem(from: obj)
+                            items.append(m)
+                        } catch {
+                            switch error {
+                            case MenuParseError.jsonParseError:
+                                let customError = NSError(domain: "com.IntelliDining",
+                                                          code: 1337,
+                                                          userInfo: ["item": obj])
+                                Crashlytics.sharedInstance().recordError(customError)
+                            default:
+                                break
+                            }
+
+                        }
+                    }
                     completion(Result.success(value: items as! [T]))
                 default:
                     completion(Result.failure(error: "Unknown type \(T.self)"))
