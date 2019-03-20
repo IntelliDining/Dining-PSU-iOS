@@ -84,7 +84,16 @@ class SelectCommonsVC: UIViewController, SelectCommonsViewModelDelegate {
     @objc func openAboutVC() {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let aboutVC = storyboard.instantiateViewController(withIdentifier: "aboutVC")
-        navigationController?.pushViewController(aboutVC, animated: true)
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            aboutVC.modalPresentationStyle = .popover
+            aboutVC.popoverPresentationController?.barButtonItem = self.infoButton
+            self.present(aboutVC, animated: true)
+        }
+        
+        else {
+            navigationController?.pushViewController(aboutVC, animated: true)
+        }
     }
     
     func setupContraints() {
