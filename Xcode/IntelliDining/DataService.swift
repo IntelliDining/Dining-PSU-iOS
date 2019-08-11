@@ -13,6 +13,8 @@ import Crashlytics
 class DataService {
     static let base = "https://api.absecom.psu.edu/rest/"
     
+    static var apiKey: Int!
+    
     private static func get<T>(_ endpoint: String, _ data: [String: Any]?, _ completion: @escaping (Result<[T]>) -> Void) {
         let query: String;
         
@@ -25,7 +27,7 @@ class DataService {
         }
 
         let params: [String: Any] = [
-            "apikey": 1
+            "apikey": "\(DataService.apiKey!)"
         ]
 
         Alamofire.request(DataService.base + endpoint + "/v1/221723" + query, method: .get, parameters: params, encoding: URLEncoding.default, headers: nil).validate().responseJSON { response in

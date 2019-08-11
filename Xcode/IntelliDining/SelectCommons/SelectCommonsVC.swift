@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import Firebase
 
 class SelectCommonsVC: UIViewController, SelectCommonsViewModelDelegate {
     
@@ -63,7 +64,34 @@ class SelectCommonsVC: UIViewController, SelectCommonsViewModelDelegate {
         collectionView.dataSource = viewModel
         collectionView.addSubview(refreshControl)
         
-        reload()
+        getApiKey { self.reload() }
+    }
+    
+    private func getApiKey(_ callback: @escaping () -> Void) {
+        Database.database().reference().observeSingleEvent(of: .value, with: { snapshot in
+            let data = snapshot.value as? [String : Int] ?? [:]
+            
+            if let apiKey = data["apiKey"] {
+                DataService.apiKey = apiKey
+                callback()
+            }
+                
+            else {
+                self.showAlert("Invalid response from server", callback: callback)
+            }
+        }) { (error) in
+            self.showAlert(error.localizedDescription, callback: callback)
+        }
+    }
+    
+    private func showAlert(_ message: String, callback: @escaping () -> Void) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "API Key Error", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Retry", style: .default) {
+                action in self.getApiKey(callback)
+            })
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     @objc func reload() {
